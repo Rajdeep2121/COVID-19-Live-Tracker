@@ -9,13 +9,14 @@ window.onload(clicked());
 // confd.innerHTML = "hello";
 function clicked(){
     // alert("hell");
-    fetch('https://coronavirus-19-api.herokuapp.com/countries/india')
+    fetch('https://api.covid19india.org/data.json')
         .then(response => response.json())
         .then(data => {
-                confd.innerHTML = data['cases']+'<br><h5>(+'+data['todayCases']+')</h5>';
-                death.innerHTML = data['deaths']+'<br><h5>(+'+data['todayDeaths']+')</h5>';
-                rec.innerHTML = data['recovered'];
-                active.innerHTML = data['active'];
+            // console.log(data['statewise'][0]);
+            confd.innerHTML = data['statewise'][0]['confirmed']+'<br><h5>(+'+data['statewise'][0]['deltaconfirmed']+')</h5>';
+            rec.innerHTML = data['statewise'][0]['recovered']+'<br><h5>(+'+data['statewise'][0]['deltarecovered']+')</h5>';
+            active.innerHTML = data['statewise'][0]['active'];
+            death.innerHTML = data['statewise'][0]['deaths']+'<br><h5>(+'+data['statewise'][0]['deltadeaths']+')</h5>';
         }
         )
     .catch(error => console.log("Connection error"));
@@ -35,10 +36,10 @@ function submitted2(){
         .then(data => {
             for(let i=0;i<data['statewise'].length;i++){
                 if(data['statewise'][i]['state'].toLowerCase()==inputVal2.value.toLowerCase()){
-                    confd3.innerHTML = data['statewise'][i]['confirmed'];
-                    rec3.innerHTML = data['statewise'][i]['recovered'];
+                    confd3.innerHTML = data['statewise'][i]['confirmed']+'<br><h5>(+'+data['statewise'][i]['deltaconfirmed']+')</h5>';
+                    rec3.innerHTML = data['statewise'][i]['recovered']+'<br><h5>(+'+data['statewise'][i]['deltarecovered']+')</h5>';
                     active3.innerHTML = data['statewise'][i]['active'];
-                    death3.innerHTML = data['statewise'][i]['deaths'];
+                    death3.innerHTML = data['statewise'][i]['deaths']+'<br><h5>(+'+data['statewise'][i]['deltadeaths']+')</h5>';
                 }
             }
         })
