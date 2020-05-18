@@ -23,7 +23,7 @@ function clicked(){
 
 // FOR STATES 
 function submitted2(){
-    window.scrollBy(0,100);
+    window.scrollBy(0,10);
     var confd3 = document.querySelector(".confirmed3");
     var death3 = document.querySelector(".deaths3");
     var rec3 = document.querySelector(".recovered3");

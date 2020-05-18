@@ -143,6 +143,23 @@ body{
     src: url(fonts/ProximaNovaBlack.otf);
   }
 
+select{
+    background-color: lightgrey;
+    height: 50px;
+    width: 400px;
+    /* width: 50%; */
+    border: none;
+    text-align: center;
+    /* margin-left: 350px; */
+    margin-top: 30px;
+    padding-left: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+option{
+    cursor: pointer;
+    text-align: center;
+}
   .search input[type="text"]{
     background-color: lightgrey;
     height: 50px;
