@@ -21,10 +21,9 @@ function clicked(){
     .catch(error => console.log("Connection error"));
 }
 
-
 // FOR STATES 
 function submitted2(){
-    window.scrollBy(0,340);
+    window.scrollBy(0,100);
     var confd3 = document.querySelector(".confirmed3");
     var death3 = document.querySelector(".deaths3");
     var rec3 = document.querySelector(".recovered3");
