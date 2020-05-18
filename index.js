@@ -22,10 +22,39 @@ function clicked(){
 }
 
 
+// FOR STATES 
+function submitted2(){
+    window.scrollBy(0,340);
+    var confd3 = document.querySelector(".confirmed3");
+    var death3 = document.querySelector(".deaths3");
+    var rec3 = document.querySelector(".recovered3");
+    var active3 = document.querySelector(".active3");
+    var inputVal2 = document.querySelector('#inputVal2');
+    // console.log(inputVal.value);
+    fetch("https://api.covid19india.org/data.json")
+        .then(response => response.json())
+        .then(data => {
+            for(let i=0;i<data['statewise'].length;i++){
+                if(data['statewise'][i]['state'].toLowerCase()==inputVal2.value.toLowerCase()){
+                    confd3.innerHTML = data['statewise'][i]['confirmed'];
+                    rec3.innerHTML = data['statewise'][i]['recovered'];
+                    active3.innerHTML = data['statewise'][i]['active'];
+                    death3.innerHTML = data['statewise'][i]['deaths'];
+                }
+            }
+        })
+    .catch(error => console.log("error"))
+}
+
+function pressed2(e){
+    if(e.keyCode==13)
+        submitted2();
+}
 
 
 
 
+// FOR WORLD
 function submitted(){
     window.scrollBy(0,1000);
     var confd2 = document.querySelector(".confirmed2");
@@ -37,21 +66,24 @@ function submitted(){
     fetch('https://coronavirus-19-api.herokuapp.com/countries/'+inputVal.value)
         .then(response => response.json())
         .then(data => {
-                if(data['cases']==undefined)
-                    alert("Enter a valid Country name!!");
-                // console.log(data['deaths']);
-                else{
-                    console.log(data['cases']);
+            if(data['cases']==undefined)
+            alert("Enter a valid Country name!!");
+            // console.log(data['deaths']);
+            else{
+                // console.log(data['cases']);
                     confd2.innerHTML = data['cases']+'<br><h5>(+'+data['todayCases']+')</h5>';
                     death2.innerHTML = data['deaths']+'<br><h5>(+'+data['todayDeaths']+')</h5>';
                     rec2.innerHTML = data['recovered'];
                     active2.innerHTML = data['active'];
                 }
-        })
-    .catch(error => console.log("error"))
-}
+            })
+            .catch(error => console.log("error"))
+        }
 
 function pressed(e){
     if(e.keyCode==13)
         submitted();
-}
+    }
+        
+        
+        
