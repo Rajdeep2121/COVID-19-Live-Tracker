@@ -37,11 +37,16 @@ function submitted(){
     fetch('https://coronavirus-19-api.herokuapp.com/countries/'+inputVal.value)
         .then(response => response.json())
         .then(data => {
+                if(data['cases']==undefined)
+                    alert("Enter a valid Country name!!");
                 // console.log(data['deaths']);
-                confd2.innerHTML = data['cases']+'<br><h5>(+'+data['todayCases']+')</h5>';
-                death2.innerHTML = data['deaths']+'<br><h5>(+'+data['todayDeaths']+')</h5>';
-                rec2.innerHTML = data['recovered'];
-                active2.innerHTML = data['active'];
+                else{
+                    console.log(data['cases']);
+                    confd2.innerHTML = data['cases']+'<br><h5>(+'+data['todayCases']+')</h5>';
+                    death2.innerHTML = data['deaths']+'<br><h5>(+'+data['todayDeaths']+')</h5>';
+                    rec2.innerHTML = data['recovered'];
+                    active2.innerHTML = data['active'];
+                }
         })
     .catch(error => console.log("error"))
 }
