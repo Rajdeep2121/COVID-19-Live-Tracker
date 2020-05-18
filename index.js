@@ -86,4 +86,27 @@ function pressed(e){
     }
         
         
-        
+function bigConfirmed(){
+    var confirmed = document.querySelector(".confirmed");
+    confirmed.style.fontSize = "50px";
+    var contain1 = document.querySelector(".contain1");
+    contain1.style.height = "150px";
+}
+function bigActive(){
+    var active = document.querySelector(".active");
+    active.style.fontSize = "50px";
+    var contain2 = document.querySelector(".contain2");
+    contain2.style.height = "150px";
+}
+function bigRecovered(){
+    var recovered = document.querySelector(".recovered");
+    recovered.style.fontSize = "50px";
+    var contain3 = document.querySelector(".contain3");
+    contain3.style.height = "150px";
+}
+function bigDeath(){
+    var death = document.querySelector(".deaths");
+    death.style.fontSize = "50px";
+    var contain4 = document.querySelector(".contain4");
+    contain4.style.height = "150px";
+}
