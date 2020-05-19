@@ -15,11 +15,15 @@ body, html{
 }
 
 body{
-    /* background: linear-gradient(-45deg,#8e44ad,#16a085); */
-    background: url('pics/MERS-CoV.jpg');
+    /* background: url('pics/MERS-CoV.jpg');
     background-attachment: fixed;
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover; */
+    background: url("pics/MERS-CoV.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
     background-size: cover;
     width: 100%;
 }
