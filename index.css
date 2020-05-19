@@ -18,6 +18,7 @@ body{
     /* background: linear-gradient(-45deg,#8e44ad,#16a085); */
     background: url('pics/MERS-CoV.jpg');
     background-attachment: fixed;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
@@ -26,11 +27,11 @@ body{
     border: none;
     font-family: myFirstFont;
     color: white;
-    
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     background: url('pics/MERS-CoV.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-
+    background-position: center 100px;
     font-size: 50px;
     text-align: center;
     font-weight: bold;
