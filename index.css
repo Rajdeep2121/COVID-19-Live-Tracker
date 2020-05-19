@@ -288,3 +288,9 @@ option{
 .deaths3:hover{
     font-size: 50px;
 }
+.dated{
+    color: white;
+    float: right;
+    font-weight: bold;
+    width: 200px;
+}

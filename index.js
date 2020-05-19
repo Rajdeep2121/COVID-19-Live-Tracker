@@ -12,7 +12,9 @@ function clicked(){
     fetch('https://api.covid19india.org/data.json')
         .then(response => response.json())
         .then(data => {
-            // console.log(data['statewise'][0]);
+            console.log(data['statewise'][0]);
+            dated.innerHTML = "Last updated: "+data['statewise'][0]['lastupdatedtime']+" IST";
+
             confd.innerHTML = data['statewise'][0]['confirmed']+'<br><h5>(+'+data['statewise'][0]['deltaconfirmed']+')</h5>';
             rec.innerHTML = data['statewise'][0]['recovered']+'<br><h5>(+'+data['statewise'][0]['deltarecovered']+')</h5>';
             active.innerHTML = data['statewise'][0]['active'];
