@@ -18,16 +18,14 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
     </head>
-    <body>
+    <body onload="bigActive();bigConfirmed();bigDeath();bigRecovered()">
 
         <!-- INDIA'S UPDATE -->
         <div class="main-heading">
             WORLD FIGHTS COVID-19
         </div>
 
-        <div class="dated">
-            
-        </div>
+        <div class="dated"></div>
         
         <div class="heading11">
             INDIA UPDATE
@@ -35,7 +33,7 @@
 
         <div class="col-md-3">
             <center>
-            <div class="contain1" onmouseover="bigConfirmed()">
+            <div class="contain1">
                 <div class="head1">Confirmed:</div>
                 <p class="confirmed"> </p>
             </div>
@@ -43,7 +41,7 @@
         </div>
         <div class="col-md-3">
             <center>
-            <div class="contain2" onmouseover="bigActive()">
+            <div class="contain2">
                 <div class="head2">Active:</div>
                 <p class="active"> </p>
             </div>
@@ -51,7 +49,7 @@
         </div>
         <div class="col-md-3">
             <center>
-            <div class="contain3" onmouseover="bigRecovered()">
+            <div class="contain3">
                 <div class="head3">Recovered:</div>
                 <p class="recovered"> </p>
             </div>
@@ -59,7 +57,7 @@
         </div>
         <div class="col-md-3">
             <center>
-            <div class="contain4" onmouseover="bigDeath()">
+            <div class="contain4">
                 <div class="head4">Deaths:</div>
                 <p class="deaths"> </p>
             </div>
