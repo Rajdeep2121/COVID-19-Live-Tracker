@@ -18,18 +18,19 @@ body{
     /* background: linear-gradient(-45deg,#8e44ad,#16a085); */
     background: url('pics/MERS-CoV.jpg');
     background-attachment: fixed;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
 }
 .main-heading{
-    border: none;
+    /* border: none; */
     font-family: myFirstFont;
     color: white;
     
-    background: url('pics/MERS-CoV.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    /* background: url('pics/MERS-CoV.jpg'); */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
     
     font-size: 50px;
     text-align: center;
