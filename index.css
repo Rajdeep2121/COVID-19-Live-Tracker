@@ -164,7 +164,7 @@ body{
 select{
     background-color: lightgrey;
     height: 50px;
-    width: 400px;
+    width: 300px;
     /* width: 50%; */
     border: none;
     text-align: center;
@@ -181,7 +181,7 @@ option{
   .search input[type="text"]{
     background-color: lightgrey;
     height: 50px;
-    width: 400px;
+    width: 300px;
     /* width: 50%; */
     border: none;
     text-align: center;
