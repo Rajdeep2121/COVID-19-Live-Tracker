@@ -1,6 +1,6 @@
 # COVID 19 Live Tracker 
 
-Visit the website at <a href="https://rajdeep2121.github.io/COVID-19-Live-Tracker/">COVID Live Tracker</a>.
+Visit the website at <a href="https://covid-live-track.herokuapp.com/">COVID Live Tracker</a>.
 
 This website shows live status of the coronavirus count.<br> 
 There is a dropdown selection menu for selecting States of India. When the name of the state is selected, live status of the state is displayed. There is also a country search bar which when entered the country name, gives the live status of that country as well. These values are updated in real time. 
