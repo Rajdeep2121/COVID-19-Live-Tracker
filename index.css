@@ -17,26 +17,14 @@ body, html{
 body{
     background: url('pics/4k-wallpaper-architecture-background-1308624.jpg');
     background-attachment: fixed;
-    /* position: fixed; */
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* background: url("pics/MERS-CoV.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
     width: 100%;
 }
 .main-heading{
-    /* border: none; */
     font-family: myFirstFont;
     color: white;
-    
-    /* background: url('pics/MERS-CoV.jpg'); */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    
     font-size: 50px;
     text-align: center;
     font-weight: bold;
@@ -182,10 +170,8 @@ option{
     background-color: lightgrey;
     height: 50px;
     width: 300px;
-    /* width: 50%; */
     border: none;
     text-align: center;
-    /* margin-left: 350px; */
     margin-top: 30px;
     border-radius: 10px;
   }
@@ -195,7 +181,6 @@ option{
     width: 100px;
     background-color: lightgrey;
     border: none;
-    /* margin-left: 600px; */
     border-radius: 5px;
   }
 .recovered2{
