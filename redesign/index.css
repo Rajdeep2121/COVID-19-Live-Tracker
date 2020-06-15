@@ -1,6 +1,5 @@
 body{
     font-family: Proxima;
-    background-color: whitesmoke;
 }
 .confirmed3,.active3,.recovered3,.deaths3{
     font-size: 20pt;
@@ -36,7 +35,7 @@ body{
     border: 1px solid whitesmoke;
     padding: 10px;
     height: 100px;
-    width: 200px;
+    width: 160px;
     text-align: center;
     margin: 5px;
     color: white;
