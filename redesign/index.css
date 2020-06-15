@@ -1,0 +1,116 @@
+body{
+    font-family: Proxima;
+    background-color: whitesmoke;
+}
+.confirmed3,.active3,.recovered3,.deaths3{
+    font-size: 20pt;
+}
+.confirmed2,.active2,.recovered2,.deaths2{
+    font-size: 20pt;
+}
+.confirmed,.active,.recovered,.deaths{
+    font-size: 20pt;
+}
+.heading11,.heading12,.heading13{
+    margin-top: 20px;
+    font-family: Lulo;
+    font-size: 20pt;
+    text-align: center;
+}
+.heading11{
+    margin-top: 50px;
+}
+.heading13{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.heading12{
+    margin-bottom: 20px;
+}
+#main-heading{
+    font-family: Lulo;
+    font-size: 30pt;
+    text-align: center;
+}
+.contain1,.contain2,.contain3,.contain4{
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    margin: 5px;
+    color: white;
+}
+.contain1:hover,.contain2:hover,.contain3:hover,.contain4:hover{
+    box-shadow: 0 18px 32px -18px #000;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    /* border: 1px solid lightgrey; */
+}
+#graph-section{ 
+    height: 300px;
+    border: 1px solid black;
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+.contain1{
+    background-color: #DB4437;
+}
+.contain2{
+    background-color: #4285F4;
+}
+.contain3{
+    background-color: #0F9D58;
+}
+.contain4{
+    background-color: black;
+}
+input[type="submit"]{
+    margin-bottom: 20px;
+    border-radius: 0;
+    width: 100px;
+    border: 1px solid #333333;
+    background-color: #333333;
+    padding: 10px;
+    color: white;
+}
+input[type="submit"]:hover{
+    background-color: #f1c40f;
+    border:1px solid #f1c40f;
+    transition: 0.2s ease-out;
+}
+#inputVal{
+    padding: 10px;
+    border: 1px solid grey;
+    text-align: center;
+    width: 50%;
+}
+#inputVal2{
+    padding: 10px;
+    border: 1px solid grey;
+    width: 50%;
+}
+.dated{
+    margin-left: 1%;
+}
+
+@font-face{
+    font-family: Kaushan;
+   src: url("fonts/KaushanScript-Regular.ttf"); 
+}  
+@font-face{
+   font-family: Proxima;
+   src: url("fonts/ProximaNovaBold.otf"); 
+}  
+@font-face{
+   font-family: Lulo;
+   src: url("fonts/Lulo_Clean_W01_One_Bold.ttf"); 
+}  
+#myChart{
+    width:100%;
+    height:100%;
+}
+  
+.zc-ref {
+    display: none;
+}
