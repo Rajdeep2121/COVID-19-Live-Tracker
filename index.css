@@ -97,9 +97,7 @@ input[type="submit"]:hover{
     width: 50%;
 }
 .dated{
-    /* margin-left: 1%; */
-    margin: 1%;
-    float: right;
+    margin-top: 40px;
 }
 
 @font-face{
