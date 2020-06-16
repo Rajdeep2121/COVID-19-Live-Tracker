@@ -130,7 +130,11 @@ function fetchNews(){
             // console.log(data['statewise'][0]);
             for(let i=0; i<data['statewise'].length;i++){
                 if(data['statewise'][i]['statenotes'] != ''){
-                    listNews.push(data['statewise'][i]['statenotes']);
+                    if(data['statewise'][i]['state'] == "Total"){
+                        data['statewise'][i]['state'] = "India";
+                    }
+                    listNews.push(data['statewise'][i]['statenotes']+'('+data['statewise'][i]['state']+')');
+                    // listNews.push(data['statewise'][i]['statenotes']);
                     // console.log(data['statewise'][i]['statenotes']);
                 }
             }
