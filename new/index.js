@@ -154,31 +154,30 @@ function drawGraph(){
 
 
 
-// window.onload = fetchNews(); 
+window.onload = fetchNews(); 
 
-// function fetchNews(){
-//     listNews = [];
-//     fetch("https://api.covid19india.org/data.json")
-//         .then(response => response.json())
-//         .then(data => {
-//             // console.log(data['statewise'][0]);
-//             for(let i=0; i<data['statewise'].length;i++){
-//                 if(data['statewise'][i]['statenotes'] != ''){
-//                     if(data['statewise'][i]['state'] == "Total"){
-//                         data['statewise'][i]['state'] = "India";
-//                     }
-//                     listNews.push(data['statewise'][i]['statenotes']+'('+data['statewise'][i]['state']+')');
-//                     // console.log(data['statewise'][i]['statenotes']);
-//                 }
-//             }
-//             listNews = listNews.slice(0,10);
+function fetchNews(){
+    listNews = [];
+    fetch("https://api.covid19india.org/data.json")
+        .then(response => response.json())
+        .then(data => {
+            // console.log(data['statewise'][0]);
+            for(let i=0; i<data['statewise'].length;i++){
+                if(data['statewise'][i]['statenotes'] != ''){
+                    if(data['statewise'][i]['state'] == "Total"){
+                        data['statewise'][i]['state'] = "India";
+                    }
+                    listNews.push(data['statewise'][i]['statenotes']+'('+data['statewise'][i]['state']+')');
+                    // console.log(data['statewise'][i]['statenotes']);
+                }
+            }
+            listNews = listNews.slice(0,10);
 
-//             for (let j=0;j<10;j++){
-//                 let ele = document.querySelector(".news"+String(j));
-//                 ele.innerHTML = listNews[j];
-//             }
-//         })
+            for (let j=0;j<10;j++){
+                let ele = document.querySelector(".news"+String(j));
+                ele.innerHTML = listNews[j];
+            }
+        })
     
-// }
-
+}
 
