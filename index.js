@@ -88,26 +88,64 @@ function pressed(e){
 }
 
 // GRAPH
-ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
-var myConfig = {
-  "type": "bar",
-  "title": {
-      "text": "Daily Cases"
-    },
-  scaleX: {
-      labels: ["Feb 15","Feb 16","Feb 17","Feb 18","Feb 19","Feb 20","Feb 21","Feb 22","Feb 23","Feb 24","Feb 25","Feb 26","Feb 27","Feb 28","Feb 29","Mar 01","Mar 02","Mar 03","Mar 04","Mar 05","Mar 06","Mar 07","Mar 08","Mar 09","Mar 10","Mar 11","Mar 12","Mar 13","Mar 14","Mar 15","Mar 16","Mar 17","Mar 18","Mar 19","Mar 20","Mar 21","Mar 22","Mar 23","Mar 24","Mar 25","Mar 26","Mar 27","Mar 28","Mar 29","Mar 30","Mar 31","Apr 01","Apr 02","Apr 03","Apr 04","Apr 05","Apr 06","Apr 07","Apr 08","Apr 09","Apr 10","Apr 11","Apr 12","Apr 13","Apr 14","Apr 15","Apr 16","Apr 17","Apr 18","Apr 19","Apr 20","Apr 21","Apr 22","Apr 23","Apr 24","Apr 25","Apr 26","Apr 27","Apr 28","Apr 29","Apr 30","May 01","May 02","May 03","May 04","May 05","May 06","May 07","May 08","May 09","May 10","May 11","May 12","May 13","May 14","May 15","May 16","May 17","May 18","May 19","May 20","May 21","May 22","May 23","May 24","May 25","May 26","May 27","May 28","May 29","May 30","May 31","Jun 01","Jun 02","Jun 03","Jun 04","Jun 05","Jun 06","Jun 07","Jun 08","Jun 09","Jun 10","Jun 11","Jun 12","Jun 13","Jun 14"]   
-  },
-  "series": [{
-    "values": [null,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,1,22,1,1,3,6,7,15,0,12,8,18,14,15,14,26,25,55,83,64,103,37,121,70,160,100,37,227,146,601,545,516,529,701,489,573,565,809,875,846,759,1248,1034,883,1060,922,2013,1250,924,1541,1290,1669,1408,1836,1607,1561,1873,1738,1801,2394,2442,2806,3932,2963,3587,3364,3344,3113,4353,3607,3524,3763,3942,3787,4864,5050,4630,6147,5553,6198,6568,6629,7113,6414,5843,7293,7300,8105,8336,8782,7761,8821,9633,9889,9471,10438,10864,8442,8852,12375,11128,11320,12023,11157]
-  }]
-};
+window.onload = drawGraph();
+function drawGraph(){
+    fetch('https://api.covid19india.org/states_daily.json')
+        .then(response => response.json())
+        .then(data => {
+            var confdList = [];
+            var dateList = [];
+            // console.log(data['states_daily'][0]);
+            let j = data['states_daily'].length - 3;
+            // let j=0;
+            let count = 0
+            while(count<5){
+                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
+                confdList.push(data['states_daily'][j]['tt']);
+                dateList.push(data['states_daily'][j]['date']);
+                count+=1;
+                j-=3;
+            }
+            confdList.reverse();
+            dateList.reverse();
 
-zingchart.render({
-  id: 'myChart',
-  data: myConfig,
-  height: "100%",
-  width: "100%"
-});
+            console.log(dateList);
+            for(let i=0;i<confdList.length;i++){
+                confdList[i] = parseInt(confdList[i]);
+            }
+            console.log(confdList);
+            
+            
+            
+            // Draw Graph
+            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+            var myConfig = {
+            "type": "bar",
+            "title": {
+                "text": "Daily Cases"
+                },
+            
+            scaleX: {
+                labels: dateList   
+            },
+            "series": [{
+                "values": confdList
+            }]
+            };
+
+            zingchart.render({
+            id: 'myChart',
+            data: myConfig,
+            height: "100%",
+            width: "100%"
+            });
+            })
+            .catch(error => console.log("error"))
+}
+// view-source:https://www.worldometers.info/coronavirus/country/india/ 
+
+
+
 // view-source:https://www.worldometers.info/coronavirus/country/india/ 
 
 
