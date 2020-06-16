@@ -1,292 +1,138 @@
-html {
-    scroll-behavior: smooth;
-}
-.new-version{
-    background-color: white;
-    padding: 10px;
-    float: left;
-    border: none;
-}
-*{
-    font-family: Arial, Helvetica, sans-serif;
-}
-body, html{     
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;  
-}
-
 body{
-    background: url('pics/4k-wallpaper-architecture-background-1308624.jpg');
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
+    font-family: Proxima;
 }
-.main-heading{
-    font-family: myFirstFont;
-    color: white;
-    font-size: 50px;
+.confirmed3,.active3,.recovered3,.deaths3{
+    font-size: 20pt;
+}
+.confirmed2,.active2,.recovered2,.deaths2{
+    font-size: 20pt;
+}
+.confirmed,.active,.recovered,.deaths{
+    font-size: 20pt;
+}
+.heading11,.heading12,.heading13,.news-heading{
+    margin-top: 20px;
+    font-family: Lulo;
+    font-size: 20pt;
     text-align: center;
-    font-weight: bold;
 }
 .heading11{
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    font-family: myFirstFont;
-    margin-top: 60px;
-}
-.heading12{
-    text-align: center;
-    color: white;
-    font-size: 30px;
-    font-family: myFirstFont;
-    padding-top: 50px;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 .heading13{
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.heading12{
+    margin-bottom: 20px;
+}
+#main-heading{
+    font-family: Proxima;
+    font-size: 30pt;
+    margin-bottom: 50px;
     text-align: center;
+}
+.contain1,.contain2,.contain3,.contain4{
+    border: 1px solid whitesmoke;
+    padding: 10px;
+    height: 100px;
+    width: 200px;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
     color: white;
-    font-size: 30px;
-    font-family: myFirstFont;
-    padding-top: 0px;
-    margin-top: 100px;
+}
+.contain1:hover,.contain2:hover,.contain3:hover,.contain4:hover{
+    box-shadow: 0 18px 32px -18px #000;
+    transition: 0.2s ease-out;
+    cursor: pointer;
+    /* border: 1px solid lightgrey; */
+}
+#graph-section{ 
+    height: 300px;
+    /* border: 1px solid black; */
+    margin-bottom: 50px;
+    margin-top: 20px;
 }
 .contain1{
-    margin-top: 100px;
-    text-align: center;
-    width: 300px;
-    height: 100px;
-    padding: 10px;
-    color: white;
-    border: 1px solid #DB4437;
     background-color: #DB4437;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    margin-bottom:50px;
-}
-.contain3{
-    cursor: pointer;
-    text-align: center;
-    width: 300px;
-    margin-top: 100px;
-    height: 100px;
-    padding: 10px;
-    color: white;
-    border: 1px solid #0F9D58;
-    background-color: #0F9D58;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.head1{
-    font-size: large;
-    background-color: #DB4437;
-}
-.confirmed{
-    background-color: #DB4437;
-    font-size: large;
-    font-weight: bold;
 }
 .contain2{
-    cursor: pointer;
-    text-align: center;
-    width: 300px;
-    margin-top: 100px;
-    height: 70px;
-    padding: 10px;
-    color: white;
-    border: 1px solid #4c8bf5;
-    background-color: #4c8bf5;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: #4285F4;
 }
-.head2{
-    font-size: large;
-    background-color: #4c8bf5;
-}
-.deaths{
-    background-color: #696969;
-    font-size: large;
-    font-weight: bold;
-}
-
-.head3{
+.contain3{
     background-color: #0F9D58;
-    font-size: large;
-}
-.recovered{
-    background-color: #0F9D58;
-    font-size: large;
-    font-weight: bold;
 }
 .contain4{
-    width: 290px;
-    cursor: pointer;
-    margin-top: 100px;
-    height: 100px;
-    text-align: center;
+    background-color: black;
+}
+input[type="submit"]{
+    margin-bottom: 20px;
+    border-radius: 0;
+    width: 100px;
+    border: 1px solid #333333;
+    background-color: #333333;
     padding: 10px;
     color: white;
-    border: 1px solid #696969;
-    background-color: #696969;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.head4{
-    background-color: #696969;
-    font-size: large;
+input[type="submit"]:hover{
+    background-color: #f1c40f;
+    border:1px solid #f1c40f;
+    transition: 0.2s ease-out;
 }
-.active{
-    background-color: #4c8bf5;
-    font-size: large;
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: myFirstFont;
-    src: url(fonts/ProximaNovaBlack.otf);
-  }
-
-select{
-    background-color: lightgrey;
-    height: 50px;
-    width: 300px;
-    /* width: 50%; */
-    border: none;
+#inputVal{
+    padding: 10px;
+    border: 1px solid grey;
     text-align: center;
-    /* margin-left: 350px; */
-    margin-top: 30px;
-    padding-left: 20px;
-    cursor: pointer;
-    border-radius: 10px;
+    width: 50%;
 }
-option{
-    cursor: pointer;
-    text-align: center;
-}
-  .search input[type="text"]{
-    background-color: lightgrey;
-    height: 50px;
-    width: 300px;
-    border: none;
-    text-align: center;
-    margin-top: 30px;
-    border-radius: 10px;
-  }
-
-  .search input[type="submit"]{
-    height: 50px;
-    width: 100px;
-    background-color: lightgrey;
-    border: none;
-    border-radius: 5px;
-  }
-.recovered2{
-    background-color: #0F9D58;
-    font-size: large;
-    font-weight: bold;
-}
-.active2{
-    background-color: #4c8bf5;
-    font-size: large;
-    font-weight: bold;
-}
-.deaths2{
-    background-color: #696969;
-    font-size: large;
-    font-weight: bold;
-}
-.confirmed2{
-    background-color: #DB4437;
-    font-size: large;
-    font-weight: bold;
-}
-.recovered3{
-    background-color: #0F9D58;
-    font-size: large;
-    font-weight: bold;
-}
-.active3{
-    background-color: #4c8bf5;
-    font-size: large;
-    font-weight: bold;
-}
-.deaths3{
-    background-color: #696969;
-    font-size: large;
-    font-weight: bold;
-}
-.confirmed3{
-    background-color: #DB4437;
-    font-size: large;
-    font-weight: bold;
-}
-
-
-
-
-.contain1:hover{
-    height: 150px;
-    transition: 0.2s ease-out;
-}
-.confirmed:hover{
-    font-size: 50px;
-}
-.confirmed2:hover{
-    font-size: 50px;
-}
-.confirmed3:hover{
-    font-size: 50px;
-}
-.contain2:hover{
-    height: 150px;
-    transition: 0.2s ease-out;
-}
-.active:hover{
-    font-size: 50px;
-}
-.active2:hover{
-    font-size: 50px;
-}
-.active3:hover{
-    font-size: 50px;
-}
-.contain3:hover{
-    height: 150px;
-    transition: 0.2s ease-out;
-}
-.recovered:hover{
-    font-size: 50px;
-}
-.recovered2:hover{
-    font-size: 50px;
-}
-.recovered3:hover{
-    font-size: 50px;
-}
-.contain4:hover{
-    height: 150px;
-    transition: 0.2s ease-out;
-}
-.deaths:hover{
-    font-size: 50px;
-}
-.deaths2:hover{
-    font-size: 50px;
-}
-.deaths3:hover{
-    font-size: 50px;
+#inputVal2{
+    padding: 10px;
+    border: 1px solid grey;
+    width: 50%;
 }
 .dated{
-    color: white;
-    float: right;
-    font-weight: bold;
-    width: 200px;
+    margin-left: 1%;
+}
+
+@font-face{
+    font-family: Kaushan;
+   src: url("fonts/KaushanScript-Regular.ttf"); 
+}  
+@font-face{
+   font-family: Proxima;
+   src: url("fonts/ProximaNovaBold.otf"); 
+}  
+@font-face{
+   font-family: Lulo;
+   src: url("fonts/Lulo_Clean_W01_One_Bold.ttf"); 
+}  
+#myChart{
+    width:100%;
+    height:100%;
+}
+  
+.zc-ref {
+    display: none;
+}
+.news-container{
+    /* margin: 10px; */
+    margin-bottom: 10%;
+    margin-top: 5%;
+    
+}
+.news-container p{
+    border: 1px solid lightgrey;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /* margin-bottom: 10px; */
+    position: relative;
+    animation: mymove 2s infinite;
+}
+@keyframes mymove {
+    0% {top: 0px;}
+    50% {top: 10px; box-shadow: 0 18px 32px -18px #000;}
+    100% {top: 0px; box-shadow: 0 18px 32px -18px white;}
 }

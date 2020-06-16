@@ -1,7 +1,7 @@
 var confd = document.querySelector(".confirmed");
 var death = document.querySelector(".deaths");
 var rec = document.querySelector(".recovered");
-var active = document.querySelector(".active");
+var active = document.querySelector(".actives");
 var dated = document.querySelector(".dated");
 
 window.onload = clicked();
@@ -130,7 +130,10 @@ function fetchNews(){
             // console.log(data['statewise'][0]);
             for(let i=0; i<data['statewise'].length;i++){
                 if(data['statewise'][i]['statenotes'] != ''){
-                    listNews.push(data['statewise'][i]['statenotes']);
+                    if(data['statewise'][i]['state'] == "Total"){
+                        data['statewise'][i]['state'] = "India";
+                    }
+                    listNews.push(data['statewise'][i]['statenotes']+'('+data['statewise'][i]['state']+')');
                     // console.log(data['statewise'][i]['statenotes']);
                 }
             }
