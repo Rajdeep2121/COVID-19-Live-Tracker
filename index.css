@@ -20,19 +20,22 @@ body{
     margin-top: 30px;
 }
 .heading13{
-    margin-top: 70px;
+    /* margin-top: 70px; */
+    margin-top: 7%;
     margin-bottom: 20px;
 }
 .heading12{
     margin-bottom: 20px;
-    margin-top: 70px;
+    margin-top: 7%;
+    /* margin-top: 70px; */
 }
 #main-heading{
     font-family: Proxima;
     font-size: 30pt;
     margin-bottom: 10px;
     text-align: center;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    margin-top: 7%;
 }
 .contain1,.contain2,.contain3,.contain4{
     border: 1px solid whitesmoke;
@@ -95,7 +98,7 @@ input[type="submit"]:hover{
 }
 .dated{
     /* margin-left: 1%; */
-    margin: 20px;
+    margin: 1%;
     float: right;
 }
 
