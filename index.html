@@ -1,5 +1,8 @@
 <html>
     <head>
+        <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  
+        
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167049875-1"></script>
         <script>
@@ -18,69 +21,97 @@
 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
+        
     </head>
-    <body onload="bigActive();bigConfirmed();bigDeath();bigRecovered()">
-
+    <!-- <body onload="bigActive();bigConfirmed();bigDeath();bigRecovered()"> -->
+    <body>
+        
         <!-- INDIA'S UPDATE -->
-        <div class="main-heading">
+        <div class="col-md-12 col-sm-12" id="main-heading">
             WORLD FIGHTS COVID-19
         </div>
 
+
         <div class="dated"></div>
-        <button class="new-version" onclick="window.location.href='redesign/index.html'">New Version</button>
         
-        <div class="heading11">
-            INDIA UPDATE
+        
+        
+
+        <center>
+        <div class="col-md-6 col-sm-12">
+            <div class="row">
+                <div class="heading11">
+                    INDIA STATUS
+                </div>
+                
+                <div class="col-md-6 col-sm-12">
+                    <div class="contain1">
+                        <div class="head1">Confirmed:</div>
+                        <p class="confirmed"> </p>
+                    </div>
+                </div>
+                    
+                <div class="col-md-6 col-sm-12">
+                    <div class="contain2">
+                        <div class="head2">Active:</div>
+                        <p class="active"> </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="contain3">
+                        <div class="head3">Recovered:</div>
+                        <p class="recovered"> </p>
+                    </div>
+                </div>
+                    
+                <div class="col-md-6 col-sm-12">
+                    <div class="contain4">
+                        <div class="head4">Deaths:</div>
+                        <p class="deaths"> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+        <div class="col-md-6 col-sm-12" id="graph-section">
+            <div id='myChart'></div>
+        </div>
+        
+        <!-- NEWS -->
+        <div class="news-heading">
+            NEWS BULLETIN
+        </div>
+        <div class="news-container">
+            <div class="col-md-12">
+                <p class="news0"></p>
+                <p class="news1"></p>
+                <p class="news2"></p>
+                <p class="news3"></p>
+                <p class="news4"></p>
+                <p class="news5"></p>
+                <p class="news6"></p>
+                <p class="news7"></p>
+                <p class="news8"></p>
+                <p class="news9"></p>
+            </div>
         </div>
 
-        <div class="col-md-3">
-            <center>
-            <div class="contain1">
-                <div class="head1">Confirmed:</div>
-                <p class="confirmed"> </p>
-            </div>
-            </center>
-        </div>
-        <div class="col-md-3">
-            <center>
-            <div class="contain2">
-                <div class="head2">Active:</div>
-                <p class="active"> </p>
-            </div>
-            </center>
-        </div>
-        <div class="col-md-3">
-            <center>
-            <div class="contain3">
-                <div class="head3">Recovered:</div>
-                <p class="recovered"> </p>
-            </div>
-            </center>
-        </div>
-        <div class="col-md-3">
-            <center>
-            <div class="contain4">
-                <div class="head4">Deaths:</div>
-                <p class="deaths"> </p>
-            </div>
-            </center>
-        </div>
 
 
 
         <!-- FOR STATES UPDATE-->
-        <!-- <br><br><br>-->
-        <div></div> 
+       
         <!-- SEARCH BAR -->
         <div class="col-md-12">    
             <div class="heading12">
-                UPDATE OF ALL STATES
+                STATEWISE STATUS 
             </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-md-12 col-sm-6">
             <center>
                 <div class="search">
-
                     <select id="inputVal2">
                         <option value="Maharashtra">Maharashtra</option>
                         <option value="Gujarat">Gujarat</option>
@@ -174,7 +205,7 @@
         <!-- SEARCH BAR -->
         <div class="col-md-12">
             <div class="heading13">
-                WORLD UPDATE
+                WORLD STATUS 
             </div>
         </div>
         <div class="col-md-12">
@@ -189,7 +220,7 @@
 
 
 
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-12">
             <center>
             <div class="contain1">
                 <div class="head1">Confirmed:</div>
@@ -197,7 +228,7 @@
             </div>
             </center>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-12">
             <center>
             <div class="contain2">
                 <div class="head2">Active:</div>
@@ -205,7 +236,7 @@
             </div>
             </center>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-12">
             <center>
             <div class="contain3">
                 <div class="head3">Recovered:</div>
@@ -213,7 +244,7 @@
             </div>
             </center>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-sm-12">
             <center>
             <div class="contain4">
                 <div class="head4">Deaths:</div>
@@ -222,6 +253,20 @@
             </center>
         </div>
 
+
+
+
+  
+
+
+
+
+
+
+
+
+        <!-- <button id="newsbtn" onclick="fetchNews()">News</button> -->
+        
         <script src="index.js"></script>
     </body>
 </html>
