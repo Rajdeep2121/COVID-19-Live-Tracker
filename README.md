@@ -10,6 +10,3 @@ This website is made mobile-friendly.
 APIs used: <br>
 <a href="https://api.covid19india.org/data.json ">https://api.covid19india.org/data.json</a>.<br>
 <a href="https://coronavirus-19-api.herokuapp.com/countries/ ">https://coronavirus-19-api.herokuapp.com/countries/</a>.
-
-<!-- http://covid19-news.herokuapp.com/api/covid19/faqs -->
-<!-- http://covid19-news.herokuapp.com/api/covid19/news -->
