@@ -126,7 +126,10 @@ function drawGraph(){
                 },
             
             scaleX: {
-                labels: dateList   
+                values: dateList,
+                item: {
+                    fontAngle: -45
+                }   
             },
             "series": [{
                 "values": confdList
