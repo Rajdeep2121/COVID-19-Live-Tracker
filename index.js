@@ -95,7 +95,7 @@ function drawGraph(){
         .then(data => {
             var confdList = [];
             var dateList = [];
-            // console.log(data['states_daily'][0]);
+            // console.log(data['states_daily']);
             let j = data['states_daily'].length - 3;
             // let j=0;
             let count = 0
@@ -110,6 +110,9 @@ function drawGraph(){
             dateList.reverse();
 
             // console.log(dateList);
+            for(let i=0;i<dateList.length;i++){
+                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
+            }
             for(let i=0;i<confdList.length;i++){
                 confdList[i] = parseInt(confdList[i]);
             }
@@ -133,14 +136,28 @@ function drawGraph(){
                 }   
             },
             plot: {
+                backgroundColor: "salmon",
+                "bar-width": 1,
                 alpha: 0.8,
                 animation: {
                     delay: 500,
                     effect: 'ANIMATION_EXPAND_BOTTOM',
                     method: 'ANIMATION_LINEAR',
                     sequence: 'ANIMATION_BY_PLOT',
-                    speed: '2000'
+                    speed: '2000',
+                    delay: '500'
                   },
+                  valueBox: {
+                    placement: "middle",
+                    text: '%v',
+                    textAlign: 'center',
+                    color: "white",
+                    // backgroundColor: "white",
+                    border: "none",
+                    // fontAngle: -90,
+                    fontFamily: "Arial"
+                    // borderRadius: "10px"
+                  }
             },
             "series": [{
                 values: confdList
