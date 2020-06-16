@@ -7,7 +7,7 @@ body{
 .confirmed2,.active2,.recovered2,.deaths2{
     font-size: 20pt;
 }
-.confirmed,.active,.recovered,.deaths{
+.confirmed,.actives,.recovered,.deaths{
     font-size: 20pt;
 }
 .heading11,.heading12,.heading13,.news-heading{
