@@ -25,6 +25,23 @@ function clicked(){
 }
 
 // FOR STATES 
+window.onload = state_load();
+function state_load(){
+    var confd3 = document.querySelector(".confirmed3");
+    var death3 = document.querySelector(".deaths3");
+    var rec3 = document.querySelector(".recovered3");
+    var active3 = document.querySelector(".active3");
+    fetch("https://api.covid19india.org/data.json")
+        .then(response => response.json())
+        .then(data => { 
+            // console.log('statewise',data['statewise'][1])
+                    confd3.innerHTML = data['statewise'][1]['confirmed']+'<br><h5>(+'+data['statewise'][1]['deltaconfirmed']+')</h5>';
+                    rec3.innerHTML = data['statewise'][1]['recovered']+'<br><h5>(+'+data['statewise'][1]['deltarecovered']+')</h5>';
+                    active3.innerHTML = data['statewise'][1]['active'];
+                    death3.innerHTML = data['statewise'][1]['deaths']+'<br><h5>(+'+data['statewise'][1]['deltadeaths']+')</h5>';
+        })
+    .catch(error => console.log("error"))
+}
 function submitted2(){
     window.scrollBy(0,10);
     var confd3 = document.querySelector(".confirmed3");
