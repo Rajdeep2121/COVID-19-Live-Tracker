@@ -1,0 +1,15 @@
+{
+    "background_color": "purple",
+    "description": "Shows random pictures.",
+    "display": "fullscreen",
+    "icons": [
+      {
+        "src": "covid_icon.jpg",
+        "sizes": "192x192",
+        "type": "image/jpg"
+      }
+    ],
+    "name": "Covid 19",
+    "short_name": "Covid",
+    "start_url": "index.html"
+  }
