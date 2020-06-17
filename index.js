@@ -74,6 +74,23 @@ function pressed2(e){
 
 
 // FOR WORLD
+window.onload = worldLoad();
+function worldLoad(){
+    var confd2 = document.querySelector(".confirmed2");
+    var death2 = document.querySelector(".deaths2");
+    var rec2 = document.querySelector(".recovered2");
+    var active2 = document.querySelector(".active2");
+    fetch('https://coronavirus-19-api.herokuapp.com/countries/')
+        .then(response => response.json())
+        .then(data => {
+            console.log("World Total:",data)
+            confd2.innerHTML = data[0]['cases']+'<br><h5>(+'+data[0]['todayCases']+')</h5>';
+            death2.innerHTML = data[0]['deaths']+'<br><h5>(+'+data[0]['todayDeaths']+')</h5>';
+            rec2.innerHTML = data[0]['recovered'];
+            active2.innerHTML = data[0]['active'];
+        })
+        .catch(error => console.log("error")) 
+}
 function submitted(){
     window.scrollBy(0,1000);
     var confd2 = document.querySelector(".confirmed2");
