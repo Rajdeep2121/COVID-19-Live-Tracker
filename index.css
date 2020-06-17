@@ -177,6 +177,22 @@ button[type="submit"]{
     padding-bottom: 50px;
     text-align: center;
 }
+.footer h4{
+    padding: 10px;
+}
+.footer a{
+    border: 1px solid white;
+    box-sizing: border-box;
+    padding: 5px;
+}
+#followTweets{    
+    animation: blink 2s infinite;
+}
+@keyframes blink{
+    0%{background-color: white; color: black;}
+    50%{background-color: black; color: white;}
+    100%{background-color: white; color: black;}
+}
 .sharethis-inline-share-buttons{
     padding: 20px;
 }
