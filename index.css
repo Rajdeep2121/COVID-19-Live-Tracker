@@ -123,7 +123,6 @@ input[type="submit"]:hover{
 .news-container{
     /* margin: 10px; */
     margin-top: 5%;
-    
 }
 .news-container p:hover{
     cursor: pointer;
@@ -137,11 +136,13 @@ input[type="submit"]:hover{
     margin-bottom: 20px;
     height: auto;
     border: 1px solid lightgrey;
+    /* color: black; */
+    /* background-color: white; */
     padding-left: 3px;
     padding-right: 1px;
     padding-top: 10px;
     padding-bottom: 10px;
-    /* margin-bottom: 10px; */
+    margin-bottom: 10px;
     position: relative;
     animation: mymove 2s infinite;
 }
@@ -150,6 +151,17 @@ input[type="submit"]:hover{
     50% {top: 10px; box-shadow: 0 18px 32px -18px #000;}
     100% {top: 0px; box-shadow: 0 18px 32px -18px white;}
 }
-.news-heading{
-    position: relative;
+.footer{
+    margin-bottom: 0;
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-left: 0px;
+    color: white;
+    background-color: #242424;
+    padding: 10px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.sharethis-inline-share-buttons{
+    padding: 20px;
 }
