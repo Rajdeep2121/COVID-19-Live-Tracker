@@ -125,11 +125,20 @@ input[type="submit"]:hover{
     margin-top: 5%;
     
 }
+.news-container p:hover{
+    cursor: pointer;
+}
+.news-container p img{
+    border: none;
+    box-shadow: 0 18px 32px -18px #000;
+}
 .news-container p{
+    text-align: center;
     margin-bottom: 20px;
+    height: auto;
     border: 1px solid lightgrey;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 3px;
+    padding-right: 1px;
     padding-top: 10px;
     padding-bottom: 10px;
     /* margin-bottom: 10px; */

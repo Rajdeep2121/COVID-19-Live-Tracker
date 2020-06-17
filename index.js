@@ -189,29 +189,30 @@ function drawGraph(){
 window.onload = fetchNews(); 
 
 function fetchNews(){
-    listNews = [];
-    fetch("https://api.covid19india.org/data.json")
-        .then(response => response.json())
-        .then(data => {
-            // console.log(data['statewise'][0]);
-            for(let i=0; i<data['statewise'].length;i++){
-                if(data['statewise'][i]['statenotes'] != ''){
-                    if(data['statewise'][i]['state'] == "Total"){
-                        data['statewise'][i]['state'] = "India";
-                    }
-                    listNews.push(data['statewise'][i]['statenotes']+'('+data['statewise'][i]['state']+')');
-                    // console.log(data['statewise'][i]['statenotes']);
+    fetch('https://api.smartable.ai/coronavirus/news/IN',{
+                method: "GET",
+                headers: {
+                    "Subscription-Key": "25e4117ba8ec497f942c31aa0acbeaaa",
+                    "Cache-Control": "no-cache"
                 }
-            }
-            listNews = listNews.slice(0,10);
-            // console.log(listNews)
-            for (let j=0;j<10;j++){
-                let ele = document.querySelector(".news"+String(j));
-                ele.innerHTML = listNews[j];
-            }
-        })
-        // .catch(error => console.log("error"))
-    // document.querySelector(".news0").innerHTML = "check";
-    // placing news in the containers
-    
+            })
+            .then(response=>response.json())
+            .then(data=>{
+                console.log(data['news'][0])
+                console.log(data['news'][5])
+                let x = 0;
+                for (let j=0;j<10;j++){
+                    let ele = document.querySelector(".news"+String(j));
+                    if(data['news'][x]['images'] != null){
+                        ele.innerHTML = "<center><img src='"+data['news'][x]['images'][0]['url']+"' width='auto' height='100'></center><br><h3>" + data['news'][x]['title']+"</h3><h5>" +"<br>"+ data['news'][x]['excerpt'] +"<br>"+ "</h5><br><a href='"+data['news'][x]['webUrl']+"' style='color: blue'>"+data['news'][x]['webUrl']+"</a>";
+                        
+                        x+=1;
+                    }
+                    else{
+                        x+=1;
+                        j-=1;
+                    }
+                }
+            })
+            .catch(error=>console.log("error"))
 }
