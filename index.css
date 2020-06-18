@@ -221,3 +221,11 @@ button[type="submit"]{
 html {
     scroll-behavior: smooth;
 }
+#sitehead{
+    animation: colorChange 2s infinite;
+}
+@keyframes colorChange{
+    0%{color: #c68833;}
+    50%{color: #FFC30B}
+    100%{color: #c68833;}
+}
