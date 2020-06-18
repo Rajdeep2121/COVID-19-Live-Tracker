@@ -41,7 +41,7 @@ body{
     margin-top: 12%;
 }
 .contain1,.contain2,.contain3,.contain4{
-    border: 1px solid whitesmoke;
+    border: none;
     padding: 10px;
     height: 100px;
     width: 200px;
@@ -141,6 +141,7 @@ button[type="submit"]{
 .news-container{
     /* margin: 10px; */
     margin-top: 5%;
+    overflow-wrap: break-word;
 }
 .news-container p:hover{
     cursor: pointer;
@@ -228,4 +229,23 @@ html {
     0%{color: #c68833;}
     50%{color: #FFC30B}
     100%{color: #c68833;}
+}
+
+
+.dark-mode {
+    background-color: #2c2c2f;
+    color: white;
+}
+
+#darkmode {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    z-index: 99;
+    font-weight: bold;   
 }
