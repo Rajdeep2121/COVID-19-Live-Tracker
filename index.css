@@ -227,7 +227,7 @@ html {
 }
 @keyframes colorChange{
     0%{color: #c68833;}
-    50%{color: #FFC30B}
+    50%{color: #ffcc01}
     100%{color: #c68833;}
 }
 
