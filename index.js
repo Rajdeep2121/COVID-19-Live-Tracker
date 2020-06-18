@@ -238,7 +238,7 @@ function fetchNews(){
                 for (let j=0;j<10;j++){
                     let ele = document.querySelector(".news"+String(j));
                     if(data['news'][x]['images'] != null){
-                        ele.innerHTML = "<center><img src='"+data['news'][x]['images'][0]['url']+"' width='auto' height='100'></center><br><h3>" + data['news'][x]['title']+"</h3><h5>" +"<br>"+ data['news'][x]['excerpt'] +"<br>"+ "</h5><br><a href='"+data['news'][x]['webUrl']+"' style='color: blue'>"+data['news'][x]['webUrl']+"</a>";
+                        ele.innerHTML = "<center><img src='"+data['news'][x]['images'][0]['url']+"' width='auto' height='100'></center><br><h3>" + data['news'][x]['title']+"</h3><h5>" +"<br>"+ data['news'][x]['excerpt'] +"<br>"+ "</h5><br><a href='"+data['news'][x]['webUrl']+"' style='color: #e44b60'>Click Here to read more...</a>";
                         
                         x+=1;
                     }
