@@ -242,6 +242,7 @@ function darkMode() {
         var svg = document.getElementById("svgicon");
         svg.style.transform = "rotate(180deg)";
         svg.style.transition = "0.5s ease-out";
+
         sessionStorage.setItem('dark','1')
         // console.log("dark set to 1")
     }
@@ -250,8 +251,6 @@ function darkMode() {
         svg.style.transform = "rotate(180deg)";
         svg.style.transition = "0.5s ease-out";
 
-        var p = document.getElementById("darkmodelabel");
-        p.innerHTML = "Light Mode";
         sessionStorage.setItem('dark','1')
         // console.log("dark set to 1")
     }
@@ -260,8 +259,6 @@ function darkMode() {
         svg.style.transform = "rotate(0deg)";
         svg.style.transition = "0.5s ease-out";
 
-        var p = document.getElementById("darkmodelabel");
-        p.innerHTML = "Dark Mode";
         sessionStorage.setItem('dark','0')
         // console.log("dark set to 0")
     }

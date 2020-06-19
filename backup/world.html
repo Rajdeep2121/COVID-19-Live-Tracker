@@ -36,6 +36,7 @@
                 <div class="collapse navbar-collapse" id="myNav">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="index.html">HOME</a></li>
+                        <li><a href="news.html">NEWS</a></li>
                         <li><a href="states.html">STATES</a></li>
                         <li><a href="world.html" style="color: white;">WORLD</a></li>
                         
@@ -98,7 +99,12 @@
             </center>
         </div>
 
-        <button id="darkmode" onclick="darkMode()">Dark Mode</button>
+        <button id="darkmode" onclick="darkMode()">  
+            <svg id="svgicon" class="bi bi-circle-half" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M8 15V1a7 7 0 1 1 0 14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+            </svg>
+            <p id="darkmodelabel">Light/Dark</p>
+        </button>
         
         <script src="index.js"></script>
     </body>

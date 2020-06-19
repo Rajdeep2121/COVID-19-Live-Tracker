@@ -27,6 +27,11 @@ body{
     margin-top: 15%;
     margin-bottom: 20px;
 }
+.news-heading{
+    /* margin-top: 70px; */
+    margin-top: 15%;
+    margin-bottom: 20px;
+}
 .heading12{
     margin-bottom: 20px;
     margin-top: 15%;
@@ -150,38 +155,7 @@ button[type="submit"]{
 .zc-ref {
     display: none;
 }
-.news-container{
-    /* margin: 10px; */
-    margin-top: 5%;
-    overflow-wrap: break-word;
-}
-.news-container p:hover{
-    cursor: pointer;
-}
-.news-container p img{
-    border: none;
-    box-shadow: 0 18px 32px -18px #000;
-}
-.news-container p{
-    text-align: center;
-    margin-bottom: 20px;
-    height: auto;
-    border: 1px solid lightgrey;
-    /* color: black; */
-    /* background-color: white; */
-    padding-left: 3px;
-    padding-right: 1px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    position: relative;
-    animation: mymove 2s infinite;
-}
-@keyframes mymove {
-    0% {top: 0px;}
-    50% {top: 10px; box-shadow: 0 18px 32px -18px #000;}
-    100% {top: 0px; box-shadow: 0 18px 32px -18px white;}
-}
+
 .footer{
     margin-bottom: 0;
     margin-top: 20px;
@@ -328,4 +302,14 @@ body{
 }
 #svgicon{
     font-size: 20pt;
+}
+.news-container{
+    text-align: center;
+    margin-top: 10px;
+    width: 90vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+}
+.news-heading i{
+    font-size: 30pt;
 }
