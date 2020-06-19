@@ -128,19 +128,29 @@ function drawGraph(){
         .then(response => response.json())
         .then(data => {
             var confdList = [];
+            var recdList = [];
+            var deathList = [];
             var dateList = [];
             // console.log(data['states_daily']);
-            let j = data['states_daily'].length - 3;
+            let j_confd = data['states_daily'].length - 3;
+            let j_death = data['states_daily'].length - 1;
+            let j_recovered = data['states_daily'].length - 2;
             // let j=0;
             let count = 0
             while(count<5){
                 // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
-                confdList.push(data['states_daily'][j]['tt']);
-                dateList.push(data['states_daily'][j]['date']);
+                confdList.push(data['states_daily'][j_confd]['tt']);
+                recdList.push(data['states_daily'][j_recovered]['tt']);
+                deathList.push(data['states_daily'][j_death]['tt']);
+                dateList.push(data['states_daily'][j_confd]['date']);
                 count+=1;
-                j-=3;
+                j_confd-=3;
+                j_recovered-=3;
+                j_death-=3;
             }
             confdList.reverse();
+            recdList.reverse();
+            deathList.reverse();
             dateList.reverse();
 
             // console.log(dateList);
@@ -149,6 +159,8 @@ function drawGraph(){
             }
             for(let i=0;i<confdList.length;i++){
                 confdList[i] = parseInt(confdList[i]);
+                recdList[i] = parseInt(recdList[i]);
+                deathList[i] = parseInt(deathList[i]);
             }
             // console.log(confdList);
             
@@ -178,7 +190,7 @@ function drawGraph(){
                     effect: 'ANIMATION_EXPAND_BOTTOM',
                     method: 'ANIMATION_LINEAR',
                     sequence: 'ANIMATION_BY_NODE',
-                    speed: '500'
+                    speed: '200'
                     // delay: '500'
                   },
                   valueBox: {
@@ -198,12 +210,108 @@ function drawGraph(){
             }]
             };
 
+            var myConfig2 = {
+                "type": "bar",
+                "title": {
+                    "text": "Daily Deaths"
+                    },
+                
+                scaleX: {
+                    values: dateList,
+                    item: {
+                        fontAngle: -45,
+                        fontWeight: 'bold'
+                    }   
+                },
+                plot: {
+                    backgroundColor: "black",
+                    "bar-width": 1,
+                    alpha: 0.8,
+                    animation: {
+                        delay: 500,
+                        effect: 'ANIMATION_EXPAND_BOTTOM',
+                        method: 'ANIMATION_LINEAR',
+                        sequence: 'ANIMATION_BY_NODE',
+                        speed: '200'
+                        // delay: '500'
+                      },
+                      valueBox: {
+                        placement: "middle",
+                        text: '%v',
+                        textAlign: 'center',
+                        color: "white",
+                        // backgroundColor: "white",
+                        border: "none",
+                        // fontAngle: -90,
+                        fontFamily: "Arial"
+                        // borderRadius: "10px"
+                      }
+                },
+                "series": [{
+                    values: deathList
+                }]
+                };
+
+                var myConfig3 = {
+                    "type": "bar",
+                    "title": {
+                        "text": "Daily Recoveries"
+                        },
+                    
+                    scaleX: {
+                        values: dateList,
+                        item: {
+                            fontAngle: -45,
+                            fontWeight: 'bold'
+                        }   
+                    },
+                    plot: {
+                        backgroundColor: "#0f9d58",
+                        "bar-width": 1,
+                        alpha: 0.8,
+                        animation: {
+                            delay: 500,
+                            effect: 'ANIMATION_EXPAND_BOTTOM',
+                            method: 'ANIMATION_LINEAR',
+                            sequence: 'ANIMATION_BY_NODE',
+                            speed: '200'
+                            // delay: '500'
+                          },
+                          valueBox: {
+                            placement: "middle",
+                            text: '%v',
+                            textAlign: 'center',
+                            color: "white",
+                            // backgroundColor: "white",
+                            border: "none",
+                            // fontAngle: -90,
+                            fontFamily: "Arial"
+                            // borderRadius: "10px"
+                          }
+                    },
+                    "series": [{
+                        values: recdList
+                    }]
+                    };
             zingchart.render({
             id: 'myChart',
             data: myConfig,
             height: "100%",
             width: "100%"
             });
+            zingchart.render({
+            id: 'myChart2',
+            data: myConfig2,
+            height: "100%",
+            width: "100%"
+            });
+            zingchart.render({
+            id: 'myChart3',
+            data: myConfig3,
+            height: "100%",
+            width: "100%"
+            });
+
             })
             .catch(error => console.log("error"))
 }
@@ -280,180 +388,4 @@ function playVideo(){
     window.scrollBy(0,10000);
     var video = document.getElementById("demoVideo");
     video.play();   
-}
-
-
-// ADD-ON GRAPHS 
-
-window.onload = drawGraph2();
-function drawGraph2(){
-    fetch('https://api.covid19india.org/states_daily.json')
-        .then(response => response.json())
-        .then(data => {
-            var confdList = [];
-            var dateList = [];
-            // console.log(data['states_daily']);
-            let j = data['states_daily'].length - 1;
-            // let j=0;
-            let count = 0
-            while(count<5){
-                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
-                confdList.push(data['states_daily'][j]['tt']);
-                dateList.push(data['states_daily'][j]['date']);
-                count+=1;
-                j-=3;
-            }
-            confdList.reverse();
-            dateList.reverse();
-
-            // console.log(dateList);
-            for(let i=0;i<dateList.length;i++){
-                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
-            }
-            for(let i=0;i<confdList.length;i++){
-                confdList[i] = parseInt(confdList[i]);
-            }
-            // console.log(confdList);
-            
-            
-            
-            // Draw Graph
-            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
-            var myConfig = {
-            "type": "bar",
-            "title": {
-                "text": "Daily Deaths"
-                },
-            
-            scaleX: {
-                values: dateList,
-                item: {
-                    fontAngle: -45,
-                    fontWeight: 'bold'
-                }   
-            },
-            plot: {
-                backgroundColor: "black",
-                "bar-width": 1,
-                alpha: 0.8,
-                animation: {
-                    delay: 500,
-                    effect: 'ANIMATION_EXPAND_BOTTOM',
-                    method: 'ANIMATION_LINEAR',
-                    sequence: 'ANIMATION_BY_NODE',
-                    speed: '500'
-                    // delay: '500'
-                  },
-                  valueBox: {
-                    placement: "middle",
-                    text: '%v',
-                    textAlign: 'center',
-                    color: "white",
-                    // backgroundColor: "white",
-                    border: "none",
-                    // fontAngle: -90,
-                    fontFamily: "Arial"
-                    // borderRadius: "10px"
-                  }
-            },
-            "series": [{
-                values: confdList
-            }]
-            };
-
-            zingchart.render({
-            id: 'myChart2',
-            data: myConfig,
-            height: "100%",
-            width: "100%"
-            });
-
-            })
-}
-
-
-window.onload = drawGraph3();
-function drawGraph3(){
-    fetch('https://api.covid19india.org/states_daily.json')
-        .then(response => response.json())
-        .then(data => {
-            var confdList = [];
-            var dateList = [];
-            // console.log(data['states_daily']);
-            let j = data['states_daily'].length - 2;
-            // let j=0;
-            let count = 0
-            while(count<5){
-                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
-                confdList.push(data['states_daily'][j]['tt']);
-                dateList.push(data['states_daily'][j]['date']);
-                count+=1;
-                j-=3;
-            }
-            confdList.reverse();
-            dateList.reverse();
-
-            // console.log(dateList);
-            for(let i=0;i<dateList.length;i++){
-                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
-            }
-            for(let i=0;i<confdList.length;i++){
-                confdList[i] = parseInt(confdList[i]);
-            }
-            // console.log(confdList);
-            
-            
-            
-            // Draw Graph
-            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
-            var myConfig = {
-            "type": "bar",
-            "title": {
-                "text": "Daily Recoveries"
-                },
-            
-            scaleX: {
-                values: dateList,
-                item: {
-                    fontAngle: -45,
-                    fontWeight: 'bold'
-                }   
-            },
-            plot: {
-                backgroundColor: "#0f9d58",
-                "bar-width": 1,
-                alpha: 0.8,
-                animation: {
-                    delay: 500,
-                    effect: 'ANIMATION_EXPAND_BOTTOM',
-                    method: 'ANIMATION_LINEAR',
-                    sequence: 'ANIMATION_BY_NODE',
-                    speed: '500'
-                    // delay: '500'
-                  },
-                  valueBox: {
-                    placement: "middle",
-                    text: '%v',
-                    textAlign: 'center',
-                    color: "white",
-                    // backgroundColor: "white",
-                    border: "none",
-                    // fontAngle: -90,
-                    fontFamily: "Arial"
-                    // borderRadius: "10px"
-                  }
-            },
-            "series": [{
-                values: confdList
-            }]
-            };
-
-            zingchart.render({
-            id: 'myChart3',
-            data: myConfig,
-            height: "100%",
-            width: "100%"
-            });
-
-            })
 }
