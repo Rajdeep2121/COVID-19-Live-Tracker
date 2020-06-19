@@ -227,6 +227,9 @@ body{
     color: white;
     transition: 0.5s ease-out;
 }
+.dark-mode .news-container{
+    background-color: white;
+}
 .dark-mode #inputVal{
     color: white;
     background-color: black;
@@ -309,7 +312,9 @@ body{
     width: 90vw;
     margin-left: 5vw;
     margin-right: 5vw;
+    box-shadow: 0 18px 32px -18px #000;
 }
+
 .news-heading i{
     font-size: 30pt;
 }
