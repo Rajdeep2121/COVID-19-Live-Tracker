@@ -274,7 +274,7 @@ html {
     margin-right: 5%;
     z-index: 1;
     /* right: 10%; */
-    bottom: 50px;
+    bottom: 70px;
     font-size: 17px;
     overflow-wrap: break-word;
   }
@@ -287,25 +287,28 @@ html {
   
   @-webkit-keyframes fadein {
     from {bottom: 0; opacity: 0;} 
-    to {bottom: 50px; opacity: 1;}
+    to {bottom: 70px; opacity: 1;}
   }
   
   @keyframes fadein {
     from {bottom: 0; opacity: 0;}
-    to {bottom: 50px; opacity: 1;}
+    to {bottom: 70px; opacity: 1;}
   }
   
   @-webkit-keyframes fadeout {
-    from {bottom: 50px; opacity: 1;} 
+    from {bottom: 70px; opacity: 1;} 
     to {bottom: 0; opacity: 0;}
   }
   
-  @keyframes fadeout {
-    from {bottom: 50px; opacity: 1;}
+@keyframes fadeout {
+    from {bottom: 70px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
-  }
-  .footer h4 button{
-      background-color: #242424;
-      color: white;
-      border: none;
-  }
+}
+.footer h4 button{
+    background-color: #242424;
+    color: white;
+    border: none;
+}
+#svgicon{
+    font-size: 20pt;
+}

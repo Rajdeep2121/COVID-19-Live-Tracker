@@ -274,16 +274,31 @@ function darkMode() {
     element.classList.toggle("dark-mode");
     // SESSION VARIABLES
     if(sessionStorage.getItem('dark')==null){
+        var svg = document.getElementById("svgicon");
+        svg.style.transform = "rotate(180deg)";
+        svg.style.transition = "0.5s ease-out";
         sessionStorage.setItem('dark','1')
-        console.log("dark set to 1")
+        // console.log("dark set to 1")
     }
     else if(sessionStorage.getItem('dark')=='0'){
+        var svg = document.getElementById("svgicon");
+        svg.style.transform = "rotate(180deg)";
+        svg.style.transition = "0.5s ease-out";
+
+        var p = document.getElementById("darkmodelabel");
+        p.innerHTML = "Light Mode";
         sessionStorage.setItem('dark','1')
-        console.log("dark set to 1")
+        // console.log("dark set to 1")
     }
     else if(sessionStorage.getItem('dark')=='1'){
+        var svg = document.getElementById("svgicon");
+        svg.style.transform = "rotate(0deg)";
+        svg.style.transition = "0.5s ease-out";
+
+        var p = document.getElementById("darkmodelabel");
+        p.innerHTML = "Dark Mode";
         sessionStorage.setItem('dark','0')
-        console.log("dark set to 0")
+        // console.log("dark set to 0")
     }
 }
 // CHECKING DARK MODE 
