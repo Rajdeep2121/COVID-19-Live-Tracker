@@ -231,10 +231,15 @@ html {
     100%{color: #c68833;}
 }
 
-
+body{
+    background-color: white;
+    color: black;
+    transition: 0.5s ease-out;
+}
 .dark-mode {
     background-color: #2c2c2f;
     color: white;
+    transition: 0.5s ease-out;
 }
 .dark-mode #inputVal{
     color: white;
