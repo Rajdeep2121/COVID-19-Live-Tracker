@@ -11,7 +11,7 @@ function clicked(){
     fetch('https://api.covid19india.org/data.json')
         .then(response => response.json())
         .then(data => {
-            console.log(data['statewise'][0]);
+            // console.log(data['statewise'][0]);
             dated.innerHTML = "Last updated: "+data['statewise'][0]['lastupdatedtime']+" IST";
 
             confd.innerHTML = data['statewise'][0]['confirmed']+'<br><h5>(+'+data['statewise'][0]['deltaconfirmed']+')</h5>';
@@ -83,7 +83,7 @@ function worldLoad(){
     fetch('https://coronavirus-19-api.herokuapp.com/countries/')
         .then(response => response.json())
         .then(data => {
-            console.log("World Total:",data)
+            // console.log("World Total:",data)
             confd2.innerHTML = data[0]['cases']+'<br><h5>(+'+data[0]['todayCases']+')</h5>';
             death2.innerHTML = data[0]['deaths']+'<br><h5>(+'+data[0]['todayDeaths']+')</h5>';
             rec2.innerHTML = data[0]['recovered'];
@@ -159,7 +159,7 @@ function drawGraph(){
             var myConfig = {
             "type": "bar",
             "title": {
-                "text": "Daily Cases"
+                "text": "Daily Confirmed"
                 },
             
             scaleX: {
@@ -170,16 +170,16 @@ function drawGraph(){
                 }   
             },
             plot: {
-                backgroundColor: "salmon",
+                backgroundColor: "#db4437",
                 "bar-width": 1,
                 alpha: 0.8,
                 animation: {
                     delay: 500,
                     effect: 'ANIMATION_EXPAND_BOTTOM',
                     method: 'ANIMATION_LINEAR',
-                    sequence: 'ANIMATION_BY_PLOT',
-                    speed: '2000',
-                    delay: '500'
+                    sequence: 'ANIMATION_BY_NODE',
+                    speed: '500'
+                    // delay: '500'
                   },
                   valueBox: {
                     placement: "middle",
@@ -215,41 +215,6 @@ function drawGraph(){
 
 
 
-
-
-
-
-
-window.onload = fetchNews(); 
-
-function fetchNews(){
-    fetch('https://api.smartable.ai/coronavirus/news/IN',{
-                method: "GET",
-                headers: {
-                    "Subscription-Key": "25e4117ba8ec497f942c31aa0acbeaaa",
-                    "Cache-Control": "no-cache"
-                }
-            })
-            .then(response=>response.json())
-            .then(data=>{
-                console.log(data['news'][0])
-                console.log(data['news'][5])
-                let x = 0;
-                for (let j=0;j<10;j++){
-                    let ele = document.querySelector(".news"+String(j));
-                    if(data['news'][x]['images'] != null){
-                        ele.innerHTML = "<center><img src='"+data['news'][x]['images'][0]['url']+"' width='auto' height='100'></center><br><h3>" + data['news'][x]['title']+"</h3><h5>" +"<br>"+ data['news'][x]['excerpt'] +"<br>"+ "</h5><br><a href='"+data['news'][x]['webUrl']+"' style='color: #e44b60'>Click Here to read more...</a>";
-                        
-                        x+=1;
-                    }
-                    else{
-                        x+=1;
-                        j-=1;
-                    }
-                }
-            })
-            .catch(error=>console.log("error"))
-}
 
 // MOVE TO TOP BTN
 var mybutton = document.getElementById("topBtn");
@@ -304,7 +269,7 @@ function darkMode() {
 // CHECKING DARK MODE 
 window.onload = checkDarkMode();
 function checkDarkMode(){
-    console.log("dark value",sessionStorage.getItem('dark'))
+    // console.log("dark value",sessionStorage.getItem('dark'))
     if(sessionStorage.getItem('dark')=='1'){
         darkMode()
         sessionStorage.setItem('dark','1')
@@ -326,4 +291,180 @@ function playVideo(){
     window.scrollBy(0,10000);
     var video = document.getElementById("demoVideo");
     video.play();   
+}
+
+
+// ADD-ON GRAPHS 
+
+window.onload = drawGraph2();
+function drawGraph2(){
+    fetch('https://api.covid19india.org/states_daily.json')
+        .then(response => response.json())
+        .then(data => {
+            var confdList = [];
+            var dateList = [];
+            // console.log(data['states_daily']);
+            let j = data['states_daily'].length - 1;
+            // let j=0;
+            let count = 0
+            while(count<5){
+                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
+                confdList.push(data['states_daily'][j]['tt']);
+                dateList.push(data['states_daily'][j]['date']);
+                count+=1;
+                j-=3;
+            }
+            confdList.reverse();
+            dateList.reverse();
+
+            // console.log(dateList);
+            for(let i=0;i<dateList.length;i++){
+                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
+            }
+            for(let i=0;i<confdList.length;i++){
+                confdList[i] = parseInt(confdList[i]);
+            }
+            // console.log(confdList);
+            
+            
+            
+            // Draw Graph
+            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+            var myConfig = {
+            "type": "bar",
+            "title": {
+                "text": "Daily Deaths"
+                },
+            
+            scaleX: {
+                values: dateList,
+                item: {
+                    fontAngle: -45,
+                    fontWeight: 'bold'
+                }   
+            },
+            plot: {
+                backgroundColor: "black",
+                "bar-width": 1,
+                alpha: 0.8,
+                animation: {
+                    delay: 500,
+                    effect: 'ANIMATION_EXPAND_BOTTOM',
+                    method: 'ANIMATION_LINEAR',
+                    sequence: 'ANIMATION_BY_NODE',
+                    speed: '500'
+                    // delay: '500'
+                  },
+                  valueBox: {
+                    placement: "middle",
+                    text: '%v',
+                    textAlign: 'center',
+                    color: "white",
+                    // backgroundColor: "white",
+                    border: "none",
+                    // fontAngle: -90,
+                    fontFamily: "Arial"
+                    // borderRadius: "10px"
+                  }
+            },
+            "series": [{
+                values: confdList
+            }]
+            };
+
+            zingchart.render({
+            id: 'myChart2',
+            data: myConfig,
+            height: "100%",
+            width: "100%"
+            });
+
+            })
+}
+
+
+window.onload = drawGraph3();
+function drawGraph3(){
+    fetch('https://api.covid19india.org/states_daily.json')
+        .then(response => response.json())
+        .then(data => {
+            var confdList = [];
+            var dateList = [];
+            // console.log(data['states_daily']);
+            let j = data['states_daily'].length - 2;
+            // let j=0;
+            let count = 0
+            while(count<5){
+                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
+                confdList.push(data['states_daily'][j]['tt']);
+                dateList.push(data['states_daily'][j]['date']);
+                count+=1;
+                j-=3;
+            }
+            confdList.reverse();
+            dateList.reverse();
+
+            // console.log(dateList);
+            for(let i=0;i<dateList.length;i++){
+                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
+            }
+            for(let i=0;i<confdList.length;i++){
+                confdList[i] = parseInt(confdList[i]);
+            }
+            // console.log(confdList);
+            
+            
+            
+            // Draw Graph
+            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
+            var myConfig = {
+            "type": "bar",
+            "title": {
+                "text": "Daily Recoveries"
+                },
+            
+            scaleX: {
+                values: dateList,
+                item: {
+                    fontAngle: -45,
+                    fontWeight: 'bold'
+                }   
+            },
+            plot: {
+                backgroundColor: "#0f9d58",
+                "bar-width": 1,
+                alpha: 0.8,
+                animation: {
+                    delay: 500,
+                    effect: 'ANIMATION_EXPAND_BOTTOM',
+                    method: 'ANIMATION_LINEAR',
+                    sequence: 'ANIMATION_BY_NODE',
+                    speed: '500'
+                    // delay: '500'
+                  },
+                  valueBox: {
+                    placement: "middle",
+                    text: '%v',
+                    textAlign: 'center',
+                    color: "white",
+                    // backgroundColor: "white",
+                    border: "none",
+                    // fontAngle: -90,
+                    fontFamily: "Arial"
+                    // borderRadius: "10px"
+                  }
+            },
+            "series": [{
+                values: confdList
+            }]
+            };
+
+            zingchart.render({
+            id: 'myChart3',
+            data: myConfig,
+            height: "100%",
+            width: "100%"
+            });
+
+            })
 }
