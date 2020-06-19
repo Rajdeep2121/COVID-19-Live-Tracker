@@ -93,7 +93,7 @@ button[type="submit"]{
     margin-bottom: 20px;
     border-radius: 0;
     width: 100px;
-    border: 2px solid #333333;
+    border: 2px solid white;
     background-color: #333333;
     padding: 10px;
     color: white;
@@ -236,7 +236,18 @@ html {
     background-color: #2c2c2f;
     color: white;
 }
-
+.dark-mode #inputVal{
+    color: white;
+    background-color: black;
+}
+.dark-mode #inputVal2{
+    color: white;
+    background-color: black;
+}
+.dark-mode option{
+    color: white;
+    background-color: black;
+}
 #darkmode {
     color: white;
     background-color: black;
