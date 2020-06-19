@@ -137,7 +137,7 @@ function drawGraph(){
             let j_recovered = data['states_daily'].length - 2;
             // let j=0;
             let count = 0
-            while(count<5){
+            while(count<7){
                 // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
                 confdList.push(data['states_daily'][j_confd]['tt']);
                 recdList.push(data['states_daily'][j_recovered]['tt']);
@@ -170,8 +170,9 @@ function drawGraph(){
             ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
             var myConfig = {
             "type": "bar",
+            "backgroundColor": "#ffe0e6",
             "title": {
-                "text": "Daily Confirmed"
+                "text": "Daily Confirmed Cases"
                 },
             
             scaleX: {
@@ -212,6 +213,7 @@ function drawGraph(){
 
             var myConfig2 = {
                 "type": "bar",
+                "backgroundColor": "lightgrey",
                 "title": {
                     "text": "Daily Deaths"
                     },
@@ -254,6 +256,7 @@ function drawGraph(){
 
                 var myConfig3 = {
                     "type": "bar",
+                    "backgroundColor": "#e4f4e8",
                     "title": {
                         "text": "Daily Recoveries"
                         },
