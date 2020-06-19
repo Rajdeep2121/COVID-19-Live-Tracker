@@ -207,14 +207,6 @@ function drawGraph(){
             })
             .catch(error => console.log("error"))
 }
-// view-source:https://www.worldometers.info/coronavirus/country/india/ 
-
-
-
-// view-source:https://www.worldometers.info/coronavirus/country/india/ 
-
-
-
 
 // MOVE TO TOP BTN
 var mybutton = document.getElementById("topBtn");
