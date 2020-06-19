@@ -272,7 +272,29 @@ function topFunction() {
 function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
- }
+    // SESSION VARIABLES
+    if(sessionStorage.getItem('dark')==null){
+        sessionStorage.setItem('dark','1')
+        console.log("dark set to 1")
+    }
+    else if(sessionStorage.getItem('dark')=='0'){
+        sessionStorage.setItem('dark','1')
+        console.log("dark set to 1")
+    }
+    else if(sessionStorage.getItem('dark')=='1'){
+        sessionStorage.setItem('dark','0')
+        console.log("dark set to 0")
+    }
+}
+// CHECKING DARK MODE 
+window.onload = checkDarkMode();
+function checkDarkMode(){
+    console.log("dark value",sessionStorage.getItem('dark'))
+    if(sessionStorage.getItem('dark')=='1'){
+        darkMode()
+        sessionStorage.setItem('dark','1')
+    }
+}
 
 //  SNACKBAR
 window.onload = snackbar();
