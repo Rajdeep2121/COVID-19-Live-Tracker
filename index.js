@@ -273,3 +273,13 @@ function darkMode() {
     var element = document.body;
     element.classList.toggle("dark-mode");
  }
+
+//  SNACKBAR
+window.onload = snackbar();
+function snackbar() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ 
+        x.className = x.className.replace("show", ""); 
+    }, 3000);
+}
