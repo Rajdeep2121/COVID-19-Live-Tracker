@@ -304,3 +304,8 @@ html {
     from {bottom: 50px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
   }
+  .footer h4 button{
+      background-color: #242424;
+      color: white;
+      border: none;
+  }

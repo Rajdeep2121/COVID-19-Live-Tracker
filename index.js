@@ -305,3 +305,10 @@ function snackbar() {
         x.className = x.className.replace("show", ""); 
     }, 3000);
 }
+
+// PLAY VIDEO ON FOOTER BUTTON CLICK
+function playVideo(){
+    window.scrollBy(0,10000);
+    var video = document.getElementById("demoVideo");
+    video.play();   
+}
