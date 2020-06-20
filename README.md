@@ -11,5 +11,6 @@ This website is made mobile-friendly.
 <a href="https://api.covid19india.org/data.json ">https://api.covid19india.org/data.json</a>.<br>
 <a href="https://coronavirus-19-api.herokuapp.com/countries/ ">https://coronavirus-19-api.herokuapp.com/countries/</a>.<br>
 
-
-<img src="Demo/1.png" width="100%" height="auto">
+<p align="center">
+    <img src="Demo/1.png" width="60%" height="auto">
+</p>
