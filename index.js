@@ -172,7 +172,8 @@ function drawGraph(){
             "type": "bar",
             "backgroundColor": "#ffe0e6",
             "title": {
-                "text": "Daily Confirmed Cases"
+                "text": "Daily Confirmed Cases",
+                "fontFamily": "Proxima"
                 },
             
             scaleX: {
@@ -215,7 +216,8 @@ function drawGraph(){
                 "type": "bar",
                 "backgroundColor": "lightgrey",
                 "title": {
-                    "text": "Daily Deaths"
+                    "text": "Daily Deaths",
+                    "fontFamily": "Proxima"
                     },
                 
                 scaleX: {
@@ -258,7 +260,8 @@ function drawGraph(){
                     "type": "bar",
                     "backgroundColor": "#e4f4e8",
                     "title": {
-                        "text": "Daily Recoveries"
+                        "text": "Daily Recoveries",
+                        "fontFamily": "Proxima"
                         },
                     
                     scaleX: {
