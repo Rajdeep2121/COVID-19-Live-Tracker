@@ -7,10 +7,12 @@ There is a dropdown selection menu for selecting States of India. When the name 
 
 This website is made mobile-friendly.
 
-# APIs used: <br>
-<a href="https://api.covid19india.org/data.json ">https://api.covid19india.org/data.json</a>.<br>
-<a href="https://coronavirus-19-api.herokuapp.com/countries/ ">https://coronavirus-19-api.herokuapp.com/countries/</a>.<br>
+<p>
+    <img src="screenshots/1.png" style="float: left;" width="40%" height="auto">
+    <img src="screenshots/5.png" style="float: right;" width="40%" height="auto">
+</p>
 
 <p align="center">
-    <img src="screenshots/1.png" width="60%" height="auto">
+    <img src="screenshots/2.png" width="60%" height="auto">
 </p>
+
