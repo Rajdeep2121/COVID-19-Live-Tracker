@@ -188,6 +188,10 @@ function drawGraph(){
                 backgroundColor: "#db4437",
                 "bar-width": 1,
                 alpha: 0.8,
+                tooltip: {
+                    "text": "%kv: %v",
+                    "fontFamily": "Proxima"
+                },
                 animation: {
                     delay: 500,
                     effect: 'ANIMATION_EXPAND_BOTTOM',
@@ -233,6 +237,10 @@ function drawGraph(){
                     backgroundColor: "black",
                     "bar-width": 1,
                     alpha: 0.8,
+                    tooltip: {
+                        "text": "%kv: %v",
+                        "fontFamily": "Proxima"
+                    },
                     animation: {
                         delay: 500,
                         effect: 'ANIMATION_EXPAND_BOTTOM',
@@ -278,6 +286,10 @@ function drawGraph(){
                         backgroundColor: "#0f9d58",
                         "bar-width": 1,
                         alpha: 0.8,
+                        tooltip: {
+                            "text": "%kv: %v",
+                            "fontFamily": "Proxima"
+                        },
                         animation: {
                             delay: 500,
                             effect: 'ANIMATION_EXPAND_BOTTOM',
