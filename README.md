@@ -12,5 +12,5 @@ This website is made mobile-friendly.
 <a href="https://coronavirus-19-api.herokuapp.com/countries/ ">https://coronavirus-19-api.herokuapp.com/countries/</a>.<br>
 
 <p align="center">
-    <img src="Demo/1.png" width="60%" height="auto">
+    <img src="screenshots/1.png" width="60%" height="auto">
 </p>
