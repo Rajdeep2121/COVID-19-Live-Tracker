@@ -137,7 +137,7 @@ function drawGraph(){
             let j_recovered = data['states_daily'].length - 2;
             // let j=0;
             let count = 0
-            while(count<7){
+            while(count<20){
                 // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
                 confdList.push(data['states_daily'][j_confd]['tt']);
                 recdList.push(data['states_daily'][j_recovered]['tt']);
@@ -152,6 +152,7 @@ function drawGraph(){
             recdList.reverse();
             deathList.reverse();
             dateList.reverse();
+            console.log(dateList)
 
             // console.log(dateList);
             for(let i=0;i<dateList.length;i++){
@@ -196,14 +197,15 @@ function drawGraph(){
                     // delay: '500'
                   },
                   valueBox: {
-                    placement: "middle",
+                    placement: "top",
                     text: '%v',
+                    fontAngle: "-90",
                     textAlign: 'center',
-                    color: "white",
+                    color: "black",
                     // backgroundColor: "white",
                     border: "none",
                     // fontAngle: -90,
-                    fontFamily: "Arial"
+                    fontFamily: "Proxima"
                     // borderRadius: "10px"
                   }
             },
@@ -240,14 +242,15 @@ function drawGraph(){
                         // delay: '500'
                       },
                       valueBox: {
-                        placement: "middle",
+                        placement: "top",
                         text: '%v',
+                        fontAngle: "-90",
                         textAlign: 'center',
-                        color: "white",
+                        color: "black",
                         // backgroundColor: "white",
                         border: "none",
                         // fontAngle: -90,
-                        fontFamily: "Arial"
+                        fontFamily: "Proxima"
                         // borderRadius: "10px"
                       }
                 },
@@ -284,14 +287,15 @@ function drawGraph(){
                             // delay: '500'
                           },
                           valueBox: {
-                            placement: "middle",
+                            placement: "top",
                             text: '%v',
+                            fontAngle: "-90",
                             textAlign: 'center',
-                            color: "white",
+                            color: "black",
                             // backgroundColor: "white",
                             border: "none",
                             // fontAngle: -90,
-                            fontFamily: "Arial"
+                            fontFamily: "Proxima"
                             // borderRadius: "10px"
                           }
                     },
