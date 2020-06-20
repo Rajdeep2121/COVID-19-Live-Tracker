@@ -10,7 +10,7 @@ This website is made mobile-friendly.
 <h3>Home Page</h3>
 <p align="center">
     <img src="screenshots/1.png" width="80%" height="auto">
-    <!-- <img src="screenshots/5.png" width="80%" height="auto"> -->
+    <img src="screenshots/5.png" width="80%" height="auto">
 </p>
 
 <h3>News Page</h3>
