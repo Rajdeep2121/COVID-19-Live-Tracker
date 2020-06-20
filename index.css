@@ -17,7 +17,7 @@ body{
     text-align: center;
 }
 .heading11{
-    margin-top: 15px;
+    margin-top: 0px;
     font-size: 30px;
     font-family: Proxima;
     font-weight: bold;
@@ -40,10 +40,14 @@ body{
 #main-heading{
     font-family: Proxima;
     font-size: 30pt;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     text-align: center;
     /* margin-top: 50px; */
     margin-top: 12%;
+}
+#main-heading p{
+    font-size: 10pt;
+    margin-bottom: 0;
 }
 .contain1,.contain2,.contain3,.contain4{
     border: none;
@@ -317,4 +321,13 @@ body{
 
 .news-heading i{
     font-size: 30pt;
+}
+#sitehead p{
+    font-family: Allura;
+    font-size: 20pt;
+    font-weight: bold;
+}
+@font-face {
+    font-family: Allura;
+    src: url("fonts/Allura-Regular.ttf")
 }
