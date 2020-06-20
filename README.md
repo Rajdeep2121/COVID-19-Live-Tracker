@@ -7,10 +7,10 @@ There is a dropdown selection menu for selecting States of India. When the name 
 
 This website is made mobile-friendly.
 
-<p>
+<p align="center">
     <h3>Home Page</h3>
-    <img src="screenshots/1.png" style="float: left;" width="50%" height="auto">
-    <img src="screenshots/5.png" style="float: right;" width="50%" height="auto">
+    <img src="screenshots/1.png" style="box-shadow: 0 18px 32px -18px #000;" width="80%" height="auto">
+    <img src="screenshots/5.png" style="box-shadow: 0 18px 32px -18px #000;" width="80%" height="auto">
 </p>
 
 <p align="center">
