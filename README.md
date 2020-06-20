@@ -30,8 +30,8 @@ This website is made mobile-friendly.
 
 # All New Dark Mode 
 
-<p>
+<!-- <p>
     <img src="screenshots/dark1.png" width="80%" height="auto">
     <img src="screenshots/dark2.png" style="float: left; left: 0;" width="40%" height="auto">
     <img src="screenshots/dark3.png" style="float: right; right: 0;" width="40%" height="auto">
-</p>
+</p> -->
