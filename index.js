@@ -395,16 +395,6 @@ function checkDarkMode(){
     }
 }
 
-//  SNACKBAR
-window.onload = snackbar();
-function snackbar() {
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function(){ 
-        x.className = x.className.replace("show", ""); 
-    }, 3000);
-}
-
 // PLAY VIDEO ON FOOTER BUTTON CLICK
 function playVideo(){
     window.scrollBy(0,10000);
