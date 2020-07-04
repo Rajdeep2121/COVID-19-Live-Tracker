@@ -12,6 +12,10 @@ function clicked(){
         .then(response => response.json())
         .then(data => {
             // console.log(data['statewise'][0]);
+            // if(data['statewise'][0]['deltaconfirmed'][0]==)
+            if(data['statewise'][0]['deltaconfirmed'][0]=='-'){
+                data['statewise'][0]['deltaconfirmed'] = data['statewise'][0]['deltaconfirmed'].slice(1,);
+            }
             dated.innerHTML = "Last updated: "+data['statewise'][0]['lastupdatedtime']+" IST";
 
             confd.innerHTML = data['statewise'][0]['confirmed']+'<br><h5>(+'+data['statewise'][0]['deltaconfirmed']+')</h5>';
@@ -35,15 +39,6 @@ function state_load(){
         .then(response => response.json())
         .then(data => { 
             // console.log('statewise',data['statewise'][1])
-            if(data['statewise'][1]['deltaconfirmed'][0]=='-'){
-                data['statewise'][1]['deltaconfirmed'] = data['statewise'][1]['deltaconfirmed'].slice(1,);
-            }
-            if(data['statewise'][1]['deltarecovered'][0]=='-'){
-                data['statewise'][1]['deltarecovered'] = data['statewise'][1]['deltarecovered'].slice(1,);
-            }
-            if(data['statewise'][1]['deltadeaths'][0]=='-'){
-                data['statewise'][1]['deltadeaths'] = data['statewise'][1]['deltadeaths'].slice(1,);
-            }
             confd3.innerHTML = data['statewise'][1]['confirmed']+'<br><h5>(+'+data['statewise'][1]['deltaconfirmed']+')</h5>';
             rec3.innerHTML = data['statewise'][1]['recovered']+'<br><h5>(+'+data['statewise'][1]['deltarecovered']+')</h5>';
             active3.innerHTML = data['statewise'][1]['active'];
