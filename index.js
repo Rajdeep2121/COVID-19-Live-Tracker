@@ -4,6 +4,67 @@ var rec = document.querySelector(".recovered");
 var active = document.querySelector(".actives");
 var dated = document.querySelector(".dated");
 
+function formatNumber(n){
+    if (n.length <= 3) {
+        return n;
+    } else {
+      var count = 0;
+      var newnew = '';
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew = newnew.concat(n[i]);
+        // console.log(n[i]);
+      }
+      newnew = newnew.concat(',');
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew = newnew.concat(n[j]);
+        count += 1;
+        if (count == 2) {
+          count = 0;
+          newnew = newnew.concat(',');
+        }
+      }
+    var finalString = reverseString(newnew);
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      return (finalString);
+    }
+}
+function formatInternationalNumber(n){
+    if (n.length <= 3) {
+        return n;
+    } else {
+      var count = 0;
+      var newnew = '';
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew = newnew.concat(n[i]);
+        // console.log(n[i]);
+      }
+      newnew = newnew.concat(',');
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew = newnew.concat(n[j]);
+        count += 1;
+        if (count == 3) {
+          count = 0;
+          newnew = newnew.concat(',');
+        }
+      }
+    var finalString = reverseString(newnew);
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      return (finalString);
+    }
+}
+
+function reverseString(str) {
+    if (str === "")
+      return "";
+    else
+      return reverseString(str.substr(1)) + str.charAt(0);
+}
+
+
 window.onload = clicked();
 
 
@@ -17,12 +78,12 @@ function clicked(){
                 data['statewise'][0]['deltaconfirmed'] = data['statewise'][0]['deltaconfirmed'].slice(1,);
             }
             dated.innerHTML = "Last updated: "+data['statewise'][0]['lastupdatedtime']+" IST";
+            // console.log(data['statewise'][0]['confirmed'].type);
+            confd.innerHTML = formatNumber(data['statewise'][0]['confirmed'])+'<br><h5>(+'+formatNumber(data['statewise'][0]['deltaconfirmed'])+')</h5>';
+            rec.innerHTML = formatNumber(data['statewise'][0]['recovered'])+'<br><h5>(+'+formatNumber(data['statewise'][0]['deltarecovered'])+')</h5>';
 
-            confd.innerHTML = data['statewise'][0]['confirmed']+'<br><h5>(+'+data['statewise'][0]['deltaconfirmed']+')</h5>';
-            rec.innerHTML = data['statewise'][0]['recovered']+'<br><h5>(+'+data['statewise'][0]['deltarecovered']+')</h5>';
-
-            active.innerHTML = data['statewise'][0]['active'];
-            death.innerHTML = data['statewise'][0]['deaths']+'<br><h5>(+'+data['statewise'][0]['deltadeaths']+')</h5>';
+            active.innerHTML = formatNumber(data['statewise'][0]['active']);
+            death.innerHTML = formatNumber(data['statewise'][0]['deaths'])+'<br><h5>(+'+formatNumber(data['statewise'][0]['deltadeaths'])+')</h5>';
         }
         )
     .catch(error => console.log("Connection error"));
@@ -39,10 +100,10 @@ function state_load(){
         .then(response => response.json())
         .then(data => { 
             // console.log('statewise',data['statewise'][1])
-            confd3.innerHTML = data['statewise'][1]['confirmed']+'<br><h5>(+'+data['statewise'][1]['deltaconfirmed']+')</h5>';
-            rec3.innerHTML = data['statewise'][1]['recovered']+'<br><h5>(+'+data['statewise'][1]['deltarecovered']+')</h5>';
-            active3.innerHTML = data['statewise'][1]['active'];
-            death3.innerHTML = data['statewise'][1]['deaths']+'<br><h5>(+'+data['statewise'][1]['deltadeaths']+')</h5>';
+            confd3.innerHTML = formatNumber(data['statewise'][1]['confirmed'])+'<br><h5>(+'+formatNumber(data['statewise'][1]['deltaconfirmed'])+')</h5>';
+            rec3.innerHTML =formatNumber(data['statewise'][1]['recovered'])+'<br><h5>(+'+formatNumber(data['statewise'][1]['deltarecovered'])+')</h5>';
+            active3.innerHTML = formatNumber(data['statewise'][1]['active']);
+            death3.innerHTML = formatNumber(data['statewise'][1]['deaths'])+'<br><h5>(+'+formatNumber(data['statewise'][1]['deltadeaths'])+')</h5>';
         })
     .catch(error => console.log("error"))
 }
@@ -59,10 +120,10 @@ function submitted2(){
         .then(data => {
             for(let i=0;i<data['statewise'].length;i++){
                 if(data['statewise'][i]['state'].toLowerCase()==inputVal2.value.toLowerCase()){
-                    confd3.innerHTML = data['statewise'][i]['confirmed']+'<br><h5>(+'+data['statewise'][i]['deltaconfirmed']+')</h5>';
-                    rec3.innerHTML = data['statewise'][i]['recovered']+'<br><h5>(+'+data['statewise'][i]['deltarecovered']+')</h5>';
-                    active3.innerHTML = data['statewise'][i]['active'];
-                    death3.innerHTML = data['statewise'][i]['deaths']+'<br><h5>(+'+data['statewise'][i]['deltadeaths']+')</h5>';
+                    confd3.innerHTML = formatNumber(data['statewise'][i]['confirmed'])+'<br><h5>(+'+formatNumber(data['statewise'][i]['deltaconfirmed'])+')</h5>';
+                    rec3.innerHTML = formatNumber(data['statewise'][i]['recovered'])+'<br><h5>(+'+formatNumber(data['statewise'][i]['deltarecovered'])+')</h5>';
+                    active3.innerHTML = formatNumber(data['statewise'][i]['active']);
+                    death3.innerHTML = formatNumber(data['statewise'][i]['deaths'])+'<br><h5>(+'+formatNumber(data['statewise'][i]['deltadeaths'])+')</h5>';
                 }
             }
         })
@@ -88,10 +149,10 @@ function worldLoad(){
         .then(response => response.json())
         .then(data => {
             // console.log("World Total:",data)
-            confd2.innerHTML = data[0]['cases']+'<br><h5>(+'+data[0]['todayCases']+')</h5>';
-            death2.innerHTML = data[0]['deaths']+'<br><h5>(+'+data[0]['todayDeaths']+')</h5>';
-            rec2.innerHTML = data[0]['recovered'];
-            active2.innerHTML = data[0]['active'];
+            confd2.innerHTML = formatInternationalNumber(data[0]['cases'].toString())+'<br><h5>(+'+formatInternationalNumber(data[0]['todayCases'].toString())+')</h5>';
+            death2.innerHTML = formatInternationalNumber(data[0]['deaths'].toString())+'<br><h5>(+'+formatInternationalNumber(data[0]['todayDeaths'].toString())+')</h5>';
+            rec2.innerHTML = formatInternationalNumber(data[0]['recovered'].toString());
+            active2.innerHTML = formatInternationalNumber(data[0]['active'].toString());
         })
         .catch(error => console.log("error")) 
 }
@@ -111,10 +172,10 @@ function submitted(){
             // console.log(data['deaths']);
             else{
                 // console.log(data['cases']);
-                    confd2.innerHTML = data['cases']+'<br><h5>(+'+data['todayCases']+')</h5>';
-                    death2.innerHTML = data['deaths']+'<br><h5>(+'+data['todayDeaths']+')</h5>';
-                    rec2.innerHTML = data['recovered'];
-                    active2.innerHTML = data['active'];
+                    confd2.innerHTML = formatInternationalNumber(data['cases'].toString())+'<br><h5>(+'+formatInternationalNumber(data['todayCases'].toString())+')</h5>';
+                    death2.innerHTML = formatInternationalNumber(data['deaths'].toString())+'<br><h5>(+'+formatInternationalNumber(data['todayDeaths'].toString())+')</h5>';
+                    rec2.innerHTML = formatInternationalNumber(data['recovered'].toString());
+                    active2.innerHTML = formatInternationalNumber(data['active'].toString());
                 }
             })
             .catch(error => console.log("error"))
