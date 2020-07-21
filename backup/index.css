@@ -17,7 +17,7 @@ body{
     text-align: center;
 }
 .heading11{
-    margin-top: 15px;
+    margin-top: 0px;
     font-size: 30px;
     font-family: Proxima;
     font-weight: bold;
@@ -40,10 +40,14 @@ body{
 #main-heading{
     font-family: Proxima;
     font-size: 30pt;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     text-align: center;
     /* margin-top: 50px; */
     margin-top: 12%;
+}
+#main-heading p{
+    font-size: 10pt;
+    margin-bottom: 0;
 }
 .contain1,.contain2,.contain3,.contain4{
     border: none;
@@ -220,12 +224,15 @@ html {
 body{
     background-color: white;
     color: black;
-    transition: 0.5s ease-out;
+    /* transition: 0.5s ease-out; */
 }
 .dark-mode {
     background-color: #2c2c2f;
     color: white;
-    transition: 0.5s ease-out;
+    /* transition: 0.5s ease-out; */
+}
+.dark-mode .news-container{
+    background-color: white;
 }
 .dark-mode #inputVal{
     color: white;
@@ -251,50 +258,7 @@ body{
     z-index: 99;
     font-weight: bold;   
 }
-/* SNACKBAR */
-#snackbar {
-    visibility: hidden;
-    background-color: #333;
-    color: #fff;
-    text-align: left;
-    border-radius: 2px;
-    padding: 16px;
-    position: fixed;
-    min-width: 250px;
-    margin-left: 5%;
-    margin-right: 5%;
-    z-index: 1;
-    /* right: 10%; */
-    bottom: 70px;
-    font-size: 17px;
-    overflow-wrap: break-word;
-  }
-  
-  #snackbar.show {
-    visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
-  }
-  
-  @-webkit-keyframes fadein {
-    from {bottom: 0; opacity: 0;} 
-    to {bottom: 70px; opacity: 1;}
-  }
-  
-  @keyframes fadein {
-    from {bottom: 0; opacity: 0;}
-    to {bottom: 70px; opacity: 1;}
-  }
-  
-  @-webkit-keyframes fadeout {
-    from {bottom: 70px; opacity: 1;} 
-    to {bottom: 0; opacity: 0;}
-  }
-  
-@keyframes fadeout {
-    from {bottom: 70px; opacity: 1;}
-    to {bottom: 0; opacity: 0;}
-}
+
 .footer h4 button{
     background-color: #242424;
     color: white;
@@ -309,7 +273,18 @@ body{
     width: 90vw;
     margin-left: 5vw;
     margin-right: 5vw;
+    box-shadow: 0 18px 32px -18px #000;
 }
+
 .news-heading i{
     font-size: 30pt;
+}
+#sitehead p{
+    font-family: Allura;
+    font-size: 20pt;
+    font-weight: bold;
+}
+@font-face {
+    font-family: Allura;
+    src: url("fonts/Allura-Regular.ttf")
 }

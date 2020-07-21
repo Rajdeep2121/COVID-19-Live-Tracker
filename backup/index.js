@@ -4,6 +4,67 @@ var rec = document.querySelector(".recovered");
 var active = document.querySelector(".actives");
 var dated = document.querySelector(".dated");
 
+function formatNumber(n){
+    if (n.length <= 3) {
+        return n;
+    } else {
+      var count = 0;
+      var newnew = '';
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew = newnew.concat(n[i]);
+        // console.log(n[i]);
+      }
+      newnew = newnew.concat(',');
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew = newnew.concat(n[j]);
+        count += 1;
+        if (count == 2) {
+          count = 0;
+          newnew = newnew.concat(',');
+        }
+      }
+    var finalString = reverseString(newnew);
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      return (finalString);
+    }
+}
+function formatInternationalNumber(n){
+    if (n.length <= 3) {
+        return n;
+    } else {
+      var count = 0;
+      var newnew = '';
+      for (var i = n.length - 1; i >= n.length - 3; i--) {
+        newnew = newnew.concat(n[i]);
+        // console.log(n[i]);
+      }
+      newnew = newnew.concat(',');
+      for (var j = n.length - 4; j >= 0; j--) {
+        newnew = newnew.concat(n[j]);
+        count += 1;
+        if (count == 3) {
+          count = 0;
+          newnew = newnew.concat(',');
+        }
+      }
+    var finalString = reverseString(newnew);
+      if (finalString[0] == ',') {
+        finalString = finalString.substring(1);
+      }
+      return (finalString);
+    }
+}
+
+function reverseString(str) {
+    if (str === "")
+      return "";
+    else
+      return reverseString(str.substr(1)) + str.charAt(0);
+}
+
+
 window.onload = clicked();
 
 
@@ -12,13 +73,17 @@ function clicked(){
         .then(response => response.json())
         .then(data => {
             // console.log(data['statewise'][0]);
+            // if(data['statewise'][0]['deltaconfirmed'][0]==)
+            if(data['statewise'][0]['deltaconfirmed'][0]=='-'){
+                data['statewise'][0]['deltaconfirmed'] = data['statewise'][0]['deltaconfirmed'].slice(1,);
+            }
             dated.innerHTML = "Last updated: "+data['statewise'][0]['lastupdatedtime']+" IST";
+            // console.log(data['statewise'][0]['confirmed'].type);
+            confd.innerHTML = formatNumber(data['statewise'][0]['confirmed'])+'<br><h5>(+'+formatNumber(data['statewise'][0]['deltaconfirmed'])+')</h5>';
+            rec.innerHTML = formatNumber(data['statewise'][0]['recovered'])+'<br><h5>(+'+formatNumber(data['statewise'][0]['deltarecovered'])+')</h5>';
 
-            confd.innerHTML = data['statewise'][0]['confirmed']+'<br><h5>(+'+data['statewise'][0]['deltaconfirmed']+')</h5>';
-            rec.innerHTML = data['statewise'][0]['recovered']+'<br><h5>(+'+data['statewise'][0]['deltarecovered']+')</h5>';
-
-            active.innerHTML = data['statewise'][0]['active'];
-            death.innerHTML = data['statewise'][0]['deaths']+'<br><h5>(+'+data['statewise'][0]['deltadeaths']+')</h5>';
+            active.innerHTML = formatNumber(data['statewise'][0]['active']);
+            death.innerHTML = formatNumber(data['statewise'][0]['deaths'])+'<br><h5>(+'+formatNumber(data['statewise'][0]['deltadeaths'])+')</h5>';
         }
         )
     .catch(error => console.log("Connection error"));
@@ -35,10 +100,10 @@ function state_load(){
         .then(response => response.json())
         .then(data => { 
             // console.log('statewise',data['statewise'][1])
-                    confd3.innerHTML = data['statewise'][1]['confirmed']+'<br><h5>(+'+data['statewise'][1]['deltaconfirmed']+')</h5>';
-                    rec3.innerHTML = data['statewise'][1]['recovered']+'<br><h5>(+'+data['statewise'][1]['deltarecovered']+')</h5>';
-                    active3.innerHTML = data['statewise'][1]['active'];
-                    death3.innerHTML = data['statewise'][1]['deaths']+'<br><h5>(+'+data['statewise'][1]['deltadeaths']+')</h5>';
+            confd3.innerHTML = formatNumber(data['statewise'][1]['confirmed'])+'<br><h5>(+'+formatNumber(data['statewise'][1]['deltaconfirmed'])+')</h5>';
+            rec3.innerHTML =formatNumber(data['statewise'][1]['recovered'])+'<br><h5>(+'+formatNumber(data['statewise'][1]['deltarecovered'])+')</h5>';
+            active3.innerHTML = formatNumber(data['statewise'][1]['active']);
+            death3.innerHTML = formatNumber(data['statewise'][1]['deaths'])+'<br><h5>(+'+formatNumber(data['statewise'][1]['deltadeaths'])+')</h5>';
         })
     .catch(error => console.log("error"))
 }
@@ -55,10 +120,10 @@ function submitted2(){
         .then(data => {
             for(let i=0;i<data['statewise'].length;i++){
                 if(data['statewise'][i]['state'].toLowerCase()==inputVal2.value.toLowerCase()){
-                    confd3.innerHTML = data['statewise'][i]['confirmed']+'<br><h5>(+'+data['statewise'][i]['deltaconfirmed']+')</h5>';
-                    rec3.innerHTML = data['statewise'][i]['recovered']+'<br><h5>(+'+data['statewise'][i]['deltarecovered']+')</h5>';
-                    active3.innerHTML = data['statewise'][i]['active'];
-                    death3.innerHTML = data['statewise'][i]['deaths']+'<br><h5>(+'+data['statewise'][i]['deltadeaths']+')</h5>';
+                    confd3.innerHTML = formatNumber(data['statewise'][i]['confirmed'])+'<br><h5>(+'+formatNumber(data['statewise'][i]['deltaconfirmed'])+')</h5>';
+                    rec3.innerHTML = formatNumber(data['statewise'][i]['recovered'])+'<br><h5>(+'+formatNumber(data['statewise'][i]['deltarecovered'])+')</h5>';
+                    active3.innerHTML = formatNumber(data['statewise'][i]['active']);
+                    death3.innerHTML = formatNumber(data['statewise'][i]['deaths'])+'<br><h5>(+'+formatNumber(data['statewise'][i]['deltadeaths'])+')</h5>';
                 }
             }
         })
@@ -84,10 +149,10 @@ function worldLoad(){
         .then(response => response.json())
         .then(data => {
             // console.log("World Total:",data)
-            confd2.innerHTML = data[0]['cases']+'<br><h5>(+'+data[0]['todayCases']+')</h5>';
-            death2.innerHTML = data[0]['deaths']+'<br><h5>(+'+data[0]['todayDeaths']+')</h5>';
-            rec2.innerHTML = data[0]['recovered'];
-            active2.innerHTML = data[0]['active'];
+            confd2.innerHTML = formatInternationalNumber(data[0]['cases'].toString())+'<br><h5>(+'+formatInternationalNumber(data[0]['todayCases'].toString())+')</h5>';
+            death2.innerHTML = formatInternationalNumber(data[0]['deaths'].toString())+'<br><h5>(+'+formatInternationalNumber(data[0]['todayDeaths'].toString())+')</h5>';
+            rec2.innerHTML = formatInternationalNumber(data[0]['recovered'].toString());
+            active2.innerHTML = formatInternationalNumber(data[0]['active'].toString());
         })
         .catch(error => console.log("error")) 
 }
@@ -107,10 +172,10 @@ function submitted(){
             // console.log(data['deaths']);
             else{
                 // console.log(data['cases']);
-                    confd2.innerHTML = data['cases']+'<br><h5>(+'+data['todayCases']+')</h5>';
-                    death2.innerHTML = data['deaths']+'<br><h5>(+'+data['todayDeaths']+')</h5>';
-                    rec2.innerHTML = data['recovered'];
-                    active2.innerHTML = data['active'];
+                    confd2.innerHTML = formatInternationalNumber(data['cases'].toString())+'<br><h5>(+'+formatInternationalNumber(data['todayCases'].toString())+')</h5>';
+                    death2.innerHTML = formatInternationalNumber(data['deaths'].toString())+'<br><h5>(+'+formatInternationalNumber(data['todayDeaths'].toString())+')</h5>';
+                    rec2.innerHTML = formatInternationalNumber(data['recovered'].toString());
+                    active2.innerHTML = formatInternationalNumber(data['active'].toString());
                 }
             })
             .catch(error => console.log("error"))
@@ -128,20 +193,31 @@ function drawGraph(){
         .then(response => response.json())
         .then(data => {
             var confdList = [];
+            var recdList = [];
+            var deathList = [];
             var dateList = [];
             // console.log(data['states_daily']);
-            let j = data['states_daily'].length - 3;
+            let j_confd = data['states_daily'].length - 3;
+            let j_death = data['states_daily'].length - 1;
+            let j_recovered = data['states_daily'].length - 2;
             // let j=0;
             let count = 0
-            while(count<5){
+            while(count<20){
                 // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
-                confdList.push(data['states_daily'][j]['tt']);
-                dateList.push(data['states_daily'][j]['date']);
+                confdList.push(data['states_daily'][j_confd]['tt']);
+                recdList.push(data['states_daily'][j_recovered]['tt']);
+                deathList.push(data['states_daily'][j_death]['tt']);
+                dateList.push(data['states_daily'][j_confd]['date']);
                 count+=1;
-                j-=3;
+                j_confd-=3;
+                j_recovered-=3;
+                j_death-=3;
             }
             confdList.reverse();
+            recdList.reverse();
+            deathList.reverse();
             dateList.reverse();
+            console.log(dateList)
 
             // console.log(dateList);
             for(let i=0;i<dateList.length;i++){
@@ -149,6 +225,8 @@ function drawGraph(){
             }
             for(let i=0;i<confdList.length;i++){
                 confdList[i] = parseInt(confdList[i]);
+                recdList[i] = parseInt(recdList[i]);
+                deathList[i] = parseInt(deathList[i]);
             }
             // console.log(confdList);
             
@@ -158,8 +236,10 @@ function drawGraph(){
             ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
             var myConfig = {
             "type": "bar",
+            "backgroundColor": "#ffe0e6",
             "title": {
-                "text": "Daily Confirmed"
+                "text": "Daily Confirmed Cases",
+                "fontFamily": "Proxima"
                 },
             
             scaleX: {
@@ -173,23 +253,28 @@ function drawGraph(){
                 backgroundColor: "#db4437",
                 "bar-width": 1,
                 alpha: 0.8,
+                tooltip: {
+                    "text": "%kv: %v",
+                    "fontFamily": "Proxima"
+                },
                 animation: {
                     delay: 500,
                     effect: 'ANIMATION_EXPAND_BOTTOM',
                     method: 'ANIMATION_LINEAR',
                     sequence: 'ANIMATION_BY_NODE',
-                    speed: '500'
+                    speed: '200'
                     // delay: '500'
                   },
                   valueBox: {
-                    placement: "middle",
+                    placement: "top",
                     text: '%v',
+                    fontAngle: "-90",
                     textAlign: 'center',
-                    color: "white",
+                    color: "black",
                     // backgroundColor: "white",
                     border: "none",
                     // fontAngle: -90,
-                    fontFamily: "Arial"
+                    fontFamily: "Proxima"
                     // borderRadius: "10px"
                   }
             },
@@ -198,23 +283,125 @@ function drawGraph(){
             }]
             };
 
+            var myConfig2 = {
+                "type": "bar",
+                "backgroundColor": "lightgrey",
+                "title": {
+                    "text": "Daily Deaths",
+                    "fontFamily": "Proxima"
+                    },
+                
+                scaleX: {
+                    values: dateList,
+                    item: {
+                        fontAngle: -45,
+                        fontWeight: 'bold'
+                    }   
+                },
+                plot: {
+                    backgroundColor: "black",
+                    "bar-width": 1,
+                    alpha: 0.8,
+                    tooltip: {
+                        "text": "%kv: %v",
+                        "fontFamily": "Proxima"
+                    },
+                    animation: {
+                        delay: 500,
+                        effect: 'ANIMATION_EXPAND_BOTTOM',
+                        method: 'ANIMATION_LINEAR',
+                        sequence: 'ANIMATION_BY_NODE',
+                        speed: '200'
+                        // delay: '500'
+                      },
+                      valueBox: {
+                        placement: "top",
+                        text: '%v',
+                        fontAngle: "-90",
+                        textAlign: 'center',
+                        color: "black",
+                        // backgroundColor: "white",
+                        border: "none",
+                        // fontAngle: -90,
+                        fontFamily: "Proxima"
+                        // borderRadius: "10px"
+                      }
+                },
+                "series": [{
+                    values: deathList
+                }]
+                };
+
+                var myConfig3 = {
+                    "type": "bar",
+                    "backgroundColor": "#e4f4e8",
+                    "title": {
+                        "text": "Daily Recoveries",
+                        "fontFamily": "Proxima"
+                        },
+                    
+                    scaleX: {
+                        values: dateList,
+                        item: {
+                            fontAngle: -45,
+                            fontWeight: 'bold'
+                        }   
+                    },
+                    plot: {
+                        backgroundColor: "#0f9d58",
+                        "bar-width": 1,
+                        alpha: 0.8,
+                        tooltip: {
+                            "text": "%kv: %v",
+                            "fontFamily": "Proxima"
+                        },
+                        animation: {
+                            delay: 500,
+                            effect: 'ANIMATION_EXPAND_BOTTOM',
+                            method: 'ANIMATION_LINEAR',
+                            sequence: 'ANIMATION_BY_NODE',
+                            speed: '200'
+                            // delay: '500'
+                          },
+                          valueBox: {
+                            placement: "top",
+                            text: '%v',
+                            fontAngle: "-90",
+                            textAlign: 'center',
+                            color: "black",
+                            // backgroundColor: "white",
+                            border: "none",
+                            // fontAngle: -90,
+                            fontFamily: "Proxima"
+                            // borderRadius: "10px"
+                          }
+                    },
+                    "series": [{
+                        values: recdList
+                    }]
+                    };
             zingchart.render({
             id: 'myChart',
             data: myConfig,
             height: "100%",
             width: "100%"
             });
+            zingchart.render({
+            id: 'myChart2',
+            data: myConfig2,
+            height: "100%",
+            width: "100%"
+            });
+            zingchart.render({
+            id: 'myChart3',
+            data: myConfig3,
+            height: "100%",
+            width: "100%"
+            });
+
             })
             .catch(error => console.log("error"))
 }
-// view-source:https://www.worldometers.info/coronavirus/country/india/ 
-
-
-
-// view-source:https://www.worldometers.info/coronavirus/country/india/ 
-
-
-
 
 // MOVE TO TOP BTN
 var mybutton = document.getElementById("topBtn");
@@ -273,195 +460,9 @@ function checkDarkMode(){
     }
 }
 
-//  SNACKBAR
-window.onload = snackbar();
-function snackbar() {
-    var x = document.getElementById("snackbar");
-    x.className = "show";
-    setTimeout(function(){ 
-        x.className = x.className.replace("show", ""); 
-    }, 3000);
-}
-
 // PLAY VIDEO ON FOOTER BUTTON CLICK
 function playVideo(){
     window.scrollBy(0,10000);
     var video = document.getElementById("demoVideo");
     video.play();   
-}
-
-
-// ADD-ON GRAPHS 
-
-window.onload = drawGraph2();
-function drawGraph2(){
-    fetch('https://api.covid19india.org/states_daily.json')
-        .then(response => response.json())
-        .then(data => {
-            var confdList = [];
-            var dateList = [];
-            // console.log(data['states_daily']);
-            let j = data['states_daily'].length - 1;
-            // let j=0;
-            let count = 0
-            while(count<5){
-                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
-                confdList.push(data['states_daily'][j]['tt']);
-                dateList.push(data['states_daily'][j]['date']);
-                count+=1;
-                j-=3;
-            }
-            confdList.reverse();
-            dateList.reverse();
-
-            // console.log(dateList);
-            for(let i=0;i<dateList.length;i++){
-                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
-            }
-            for(let i=0;i<confdList.length;i++){
-                confdList[i] = parseInt(confdList[i]);
-            }
-            // console.log(confdList);
-            
-            
-            
-            // Draw Graph
-            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
-            var myConfig = {
-            "type": "bar",
-            "title": {
-                "text": "Daily Deaths"
-                },
-            
-            scaleX: {
-                values: dateList,
-                item: {
-                    fontAngle: -45,
-                    fontWeight: 'bold'
-                }   
-            },
-            plot: {
-                backgroundColor: "black",
-                "bar-width": 1,
-                alpha: 0.8,
-                animation: {
-                    delay: 500,
-                    effect: 'ANIMATION_EXPAND_BOTTOM',
-                    method: 'ANIMATION_LINEAR',
-                    sequence: 'ANIMATION_BY_NODE',
-                    speed: '500'
-                    // delay: '500'
-                  },
-                  valueBox: {
-                    placement: "middle",
-                    text: '%v',
-                    textAlign: 'center',
-                    color: "white",
-                    // backgroundColor: "white",
-                    border: "none",
-                    // fontAngle: -90,
-                    fontFamily: "Arial"
-                    // borderRadius: "10px"
-                  }
-            },
-            "series": [{
-                values: confdList
-            }]
-            };
-
-            zingchart.render({
-            id: 'myChart2',
-            data: myConfig,
-            height: "100%",
-            width: "100%"
-            });
-
-            })
-}
-
-
-window.onload = drawGraph3();
-function drawGraph3(){
-    fetch('https://api.covid19india.org/states_daily.json')
-        .then(response => response.json())
-        .then(data => {
-            var confdList = [];
-            var dateList = [];
-            // console.log(data['states_daily']);
-            let j = data['states_daily'].length - 2;
-            // let j=0;
-            let count = 0
-            while(count<5){
-                // console.log(data['states_daily'][j]['status']+' '+ data['states_daily'][j]['date']+' '+data['states_daily'][j]['tt']);
-                confdList.push(data['states_daily'][j]['tt']);
-                dateList.push(data['states_daily'][j]['date']);
-                count+=1;
-                j-=3;
-            }
-            confdList.reverse();
-            dateList.reverse();
-
-            // console.log(dateList);
-            for(let i=0;i<dateList.length;i++){
-                dateList[i] = (dateList[i].slice(0,dateList[i].length-3));
-            }
-            for(let i=0;i<confdList.length;i++){
-                confdList[i] = parseInt(confdList[i]);
-            }
-            // console.log(confdList);
-            
-            
-            
-            // Draw Graph
-            ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "b55b025e438fa8a98e32482b5f768ff5"];
-            var myConfig = {
-            "type": "bar",
-            "title": {
-                "text": "Daily Recoveries"
-                },
-            
-            scaleX: {
-                values: dateList,
-                item: {
-                    fontAngle: -45,
-                    fontWeight: 'bold'
-                }   
-            },
-            plot: {
-                backgroundColor: "#0f9d58",
-                "bar-width": 1,
-                alpha: 0.8,
-                animation: {
-                    delay: 500,
-                    effect: 'ANIMATION_EXPAND_BOTTOM',
-                    method: 'ANIMATION_LINEAR',
-                    sequence: 'ANIMATION_BY_NODE',
-                    speed: '500'
-                    // delay: '500'
-                  },
-                  valueBox: {
-                    placement: "middle",
-                    text: '%v',
-                    textAlign: 'center',
-                    color: "white",
-                    // backgroundColor: "white",
-                    border: "none",
-                    // fontAngle: -90,
-                    fontFamily: "Arial"
-                    // borderRadius: "10px"
-                  }
-            },
-            "series": [{
-                values: confdList
-            }]
-            };
-
-            zingchart.render({
-            id: 'myChart3',
-            data: myConfig,
-            height: "100%",
-            width: "100%"
-            });
-
-            })
 }
