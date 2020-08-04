@@ -26,19 +26,22 @@ body{
     /* margin-top: 70px; */
     margin-top: 15%;
     margin-bottom: 20px;
+    font-family: Circular;
 }
 .news-heading{
     /* margin-top: 70px; */
     margin-top: 15%;
     margin-bottom: 20px;
+    font-family: Circular;
 }
 .heading12{
     margin-bottom: 20px;
     margin-top: 15%;
     /* margin-top: 70px; */
+    font-family: Circular;
 }
 #main-heading{
-    font-family: Proxima;
+    font-family: Circular;
     font-size: 30pt;
     margin-bottom: 0;
     text-align: center;
@@ -287,4 +290,8 @@ body{
 @font-face {
     font-family: Allura;
     src: url("fonts/Allura-Regular.ttf")
+}
+@font-face {
+    font-family: Circular;
+    src: url("fonts/CircularSpotify.ttf")
 }
