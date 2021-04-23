@@ -57,17 +57,16 @@ body{
     padding: 10px;
     height: 100px;
     width: 200px;
-    border-radius: 15px;
+    border-radius: 5px;
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
     color: white;
 }
 .contain1:hover,.contain2:hover,.contain3:hover,.contain4:hover{
-    box-shadow: 0 18px 32px -18px #000;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     transition: 0.2s ease-out;
     cursor: pointer;
-    /* border: 1px solid lightgrey; */
 }
 #graph-section{ 
     height: 300px;
@@ -88,16 +87,21 @@ body{
     margin-top: 20px;
 }
 .contain1{
-    background-color: #DB4437;
+    /* background-color: #DB4437; */
+    background-color: #ffe0e6;
+    color: #db4437;
 }
 .contain2{
-    background-color: #4285F4;
+    background-color: #dfeeff;
+    color: #4285F4;
 }
 .contain3{
-    background-color: #0F9D58;
+    background-color: #e4f4e8;
+    color: darkgreen;
 }
 .contain4{
-    background-color: black;
+    background-color: lightgrey;
+    color: black;
 }
 /* input[type="submit"]{
     margin-bottom: 20px;
