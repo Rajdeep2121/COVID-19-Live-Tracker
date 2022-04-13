@@ -1,7 +1,5 @@
 # COVID 19 Live Tracker 
 
-Visit the website at <a href="https://covid-live-track.herokuapp.com/">COVID Live Tracker</a>.
-
 <b><i>Monitoring one of the most essential thing in today's world i.e. COVID-19 made easy.</i></b>
 
 Daily confirmed cases, daily deaths and daily recoveries are monitored and displayed using graphic visualizations. The news page has the official twitter handle <a href="https://twitter.com/COVIDNewsByMIB">COVIDNewsByMIB</a>.
